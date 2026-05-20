@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -928,6 +927,7 @@ async function saveFNPlayer(){
 
 function editFNPlayer(id){
   const p=DB.fn.find(x=>x.id===id);if(!p)return;
+  // Pré-remplir AVANT d'ouvrir la modal
   document.getElementById('fn-edit-id').value=id;
   document.getElementById('fn-pseudo').value=p.pseudo;
   document.getElementById('fn-twitter').value=p.twitter||'';
@@ -939,7 +939,7 @@ function editFNPlayer(id){
   document.getElementById('fn-followers').value=p.followers||'';
   document.getElementById('fn-forme').value=p.forme;
   document.getElementById('fn-notes').value=p.notes||'';
-  openModal('addFN');
+  openModal('addFN', true); // isEdit=true pour ne pas effacer l'ID
 }
 
 async function deleteFNPlayer(id){
@@ -975,7 +975,7 @@ function editEAFCPlayer(id){
   document.getElementById('eafc-followers').value=p.followers||'';
   document.getElementById('eafc-forme').value=p.forme;
   document.getElementById('eafc-notes').value=p.notes||'';
-  openModal('addEAFC');
+  openModal('addEAFC', true); // isEdit=true
 }
 
 async function deleteEAFCPlayer(id){
@@ -1037,7 +1037,7 @@ function editContrat(id){
   document.getElementById('c2-notes').value=o.notes||'';
   const pval=o.fn_player_id?`fn__${o.fn_player_id}`:`eafc__${o.eafc_player_id}`;
   if(sel)sel.value=pval;
-  openModal('addContrat');
+  openModal('addContrat', true); // isEdit=true
 }
 
 async function deleteContrat(id){
@@ -1126,11 +1126,12 @@ async function updateFollowers(game,id){
 }
 
 // ── MODAL ──
-function openModal(name){
+function openModal(name, isEdit=false){
   document.querySelectorAll('.modal').forEach(m=>m.style.display='none');
-  if(name==='addFN')document.getElementById('fn-edit-id').value='';
-  if(name==='addEAFC')document.getElementById('eafc-edit-id').value='';
-  if(name==='addContrat'){document.getElementById('contrat-edit-id').value='';document.getElementById('contrat-modal-title').textContent='Nouveau contrat';}
+  // Ne réinitialiser les IDs QUE si on crée (pas si on édite)
+  if(name==='addFN' && !isEdit) document.getElementById('fn-edit-id').value='';
+  if(name==='addEAFC' && !isEdit) document.getElementById('eafc-edit-id').value='';
+  if(name==='addContrat' && !isEdit){document.getElementById('contrat-edit-id').value='';document.getElementById('contrat-modal-title').textContent='Nouveau contrat';}
 
   if(name==='updateRanking'){
     document.getElementById('ranking-fields').innerHTML=DB.fn.map(p=>`
