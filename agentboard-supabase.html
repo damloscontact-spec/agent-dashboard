@@ -43,7 +43,6 @@
 html,body{height:100%;}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:13.5px;line-height:1.5;display:flex;min-height:100vh;}
 
-/* LOADING */
 .loading-screen{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:999;gap:16px;}
 .loading-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:28px;color:var(--text);}
 .loading-logo span{color:var(--fn);}
@@ -52,16 +51,14 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 @keyframes loadfill{0%{width:0%}50%{width:80%}100%{width:100%}}
 .loading-text{font-size:12px;color:var(--muted);}
 
-/* TOAST */
 .toast{position:fixed;bottom:24px;right:24px;background:var(--s3);border:1px solid var(--border2);border-radius:var(--rs);padding:12px 18px;font-size:13px;color:var(--text);z-index:9999;transform:translateY(80px);opacity:0;transition:all .3s ease;max-width:320px;}
 .toast.show{transform:translateY(0);opacity:1;}
 .toast.success{border-color:rgba(52,211,153,0.3);color:var(--green);}
 .toast.error{border-color:rgba(248,113,113,0.3);color:var(--red);}
 
-/* SIDEBAR */
 .sidebar{width:var(--sidebar);min-height:100vh;background:var(--s1);border-right:1px solid var(--border);display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:100;overflow-y:auto;}
 .logo-area{padding:24px 20px 18px;border-bottom:1px solid var(--border);}
-.logo-mark{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;letter-spacing:-.02em;color:var(--text);}
+.logo-mark{font-family:'Syne',sans-serif;font-weight:800;font-size:20px;letter-spacing:-.02em;}
 .logo-mark span{color:var(--fn);}
 .logo-sub{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.14em;margin-top:3px;}
 .sync-indicator{display:flex;align-items:center;gap:6px;margin-top:8px;font-size:10.5px;color:var(--muted);}
@@ -77,7 +74,6 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .nav-icon{font-size:13px;width:16px;text-align:center;flex-shrink:0;}
 .sidebar-foot{padding:14px 20px;border-top:1px solid var(--border);font-size:11px;color:var(--muted);}
 
-/* MAIN */
 .main{margin-left:var(--sidebar);flex:1;display:flex;flex-direction:column;min-height:100vh;}
 .topbar{height:56px;background:var(--s1);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 28px;position:sticky;top:0;z-index:50;}
 .topbar-title{font-family:'Syne',sans-serif;font-weight:700;font-size:18px;letter-spacing:-.01em;}
@@ -86,12 +82,10 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .btn-refresh:hover{color:var(--fn);border-color:var(--fn-b);}
 .content{padding:26px 28px;flex:1;}
 
-/* SECTIONS */
 .section{display:none;animation:fadeUp .22s ease;}
 .section.active{display:block;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
-/* LAYOUT */
 .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
 .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
 .g2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
@@ -102,14 +96,12 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .ssub{font-size:11.5px;color:var(--muted);margin-top:2px;}
 .flex{display:flex;}.fca{align-items:center;}.g6{gap:6px;}.g10{gap:10px;}.g14{gap:14px;}
 
-/* CARD */
 .card{background:var(--s1);border:1px solid var(--border);border-radius:var(--r);padding:18px 20px;}
 .card-label{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:6px;font-family:'Syne',sans-serif;font-weight:600;}
 .card-val{font-family:'Syne',sans-serif;font-weight:800;font-size:28px;letter-spacing:-.02em;}
 .card-delta{font-size:11.5px;margin-top:4px;}
 .up{color:var(--green);}.dn{color:var(--red);}.neu{color:var(--muted);}
 
-/* BTN */
 .btn{display:inline-flex;align-items:center;gap:6px;padding:7px 15px;border-radius:var(--rs);font-size:12px;font-family:'Syne',sans-serif;font-weight:600;cursor:pointer;border:none;transition:all .15s;letter-spacing:.01em;}
 .btn-fn{background:var(--fn-s);color:var(--fn);border:1px solid var(--fn-b);}.btn-fn:hover{background:var(--fn-b);}
 .btn-eafc{background:var(--eafc-s);color:var(--eafc);border:1px solid var(--eafc-b);}.btn-eafc:hover{background:var(--eafc-b);}
@@ -118,9 +110,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .btn-danger{background:var(--red-s);color:var(--red);border:1px solid rgba(248,113,113,0.15);}.btn-danger:hover{background:rgba(248,113,113,0.18);}
 .btn-sm{padding:4px 10px;font-size:11px;}
 .btn-xs{padding:3px 8px;font-size:10px;}
-.btn:disabled{opacity:.4;cursor:not-allowed;}
 
-/* TAGS */
 .tag{display:inline-flex;align-items:center;padding:2px 8px;border-radius:20px;font-size:10.5px;font-family:'Syne',sans-serif;font-weight:600;}
 .t-fn{background:var(--fn-s);color:var(--fn);}
 .t-eafc{background:var(--eafc-s);color:var(--eafc);}
@@ -130,8 +120,9 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .t-gold{background:var(--gold-s);color:var(--gold);}
 .t-purple{background:var(--purple-s);color:var(--purple);}
 .t-muted{background:var(--s3);color:var(--muted);}
+.t-encours{background:var(--green-s);color:var(--green);}
+.t-termine{background:var(--s3);color:var(--muted);}
 
-/* AVATAR */
 .av{border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;flex-shrink:0;overflow:hidden;}
 .av img{width:100%;height:100%;object-fit:cover;}
 .av-fn{background:linear-gradient(135deg,#00b8d9,#6ee7ff);color:#0a0b0d;}
@@ -141,7 +132,6 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .av-green{background:linear-gradient(135deg,#059669,#34d399);color:#0a0b0d;}
 .av-teal{background:linear-gradient(135deg,#0891b2,#22d3ee);color:#0a0b0d;}
 
-/* TABLE */
 .tw{background:var(--s1);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;}
 table{width:100%;border-collapse:collapse;}
 thead th{background:var(--s2);padding:8px 14px;text-align:left;font-size:10px;font-family:'Syne',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);border-bottom:1px solid var(--border);}
@@ -150,20 +140,17 @@ tbody tr:last-child{border-bottom:none;}
 tbody tr:hover{background:var(--s2);}
 tbody td{padding:10px 14px;font-size:13px;color:var(--text);vertical-align:middle;}
 
-/* RANK */
 .rk{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:11px;font-weight:800;flex-shrink:0;}
 .rk1{background:rgba(212,168,67,.15);color:var(--gold);border:1.5px solid var(--gold);}
 .rk2{background:rgba(180,180,185,.1);color:#b4b4b9;border:1.5px solid #b4b4b9;}
 .rk3{background:rgba(160,100,60,.12);color:#c47840;border:1.5px solid #c47840;}
 .rkn{background:var(--s3);color:var(--muted);border:1px solid var(--border2);}
 
-/* BAR */
 .bar{background:var(--s3);border-radius:3px;overflow:hidden;}
 .bar-fill{height:100%;border-radius:3px;transition:width .5s ease;}
 .bf-fn{background:linear-gradient(90deg,var(--fn2),var(--fn));}
 .bf-eafc{background:linear-gradient(90deg,var(--eafc2),var(--eafc));}
 
-/* TASK */
 .task{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);}
 .task:last-child{border-bottom:none;}
 .tcheck{width:16px;height:16px;border-radius:4px;border:1.5px solid var(--border2);cursor:pointer;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all .15s;}
@@ -174,7 +161,6 @@ tbody td{padding:10px 14px;font-size:13px;color:var(--text);vertical-align:middl
 .task-text.done{text-decoration:line-through;color:var(--muted);}
 .task-meta{font-size:10.5px;color:var(--muted);margin-top:2px;}
 
-/* NEGO */
 .nego-track{display:flex;align-items:center;margin:8px 0 4px;}
 .ndot{width:7px;height:7px;border-radius:50%;background:var(--s4);flex-shrink:0;}
 .ndot.done{background:var(--green);}
@@ -183,7 +169,6 @@ tbody td{padding:10px 14px;font-size:13px;color:var(--text);vertical-align:middl
 .nline.done{background:var(--green);}
 .nego-label{font-size:10.5px;color:var(--muted);margin-top:4px;}
 
-/* DIVIDER */
 .gdiv{display:flex;align-items:center;gap:12px;margin:24px 0 16px;}
 .gdiv-line{flex:1;height:1px;background:var(--border);}
 .gdiv-label{font-family:'Syne',sans-serif;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.14em;padding:4px 12px;border-radius:20px;}
@@ -191,13 +176,12 @@ tbody td{padding:10px 14px;font-size:13px;color:var(--text);vertical-align:middl
 .gdl-eafc{color:var(--eafc);background:var(--eafc-s);border:1px solid var(--eafc-b);}
 .gdl-muted{color:var(--dim);background:var(--s2);border:1px solid var(--border2);}
 
-/* CONTACT */
 .ccard{background:var(--s1);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;display:flex;align-items:flex-start;gap:12px;transition:border-color .15s;}
 .ccard:hover{border-color:var(--border2);}
 .cav{width:36px;height:36px;border-radius:50%;background:var(--s3);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:13px;font-weight:800;flex-shrink:0;}
 
-/* PLAYER CARD */
-.pcard{background:var(--s1);border:1px solid var(--border);border-radius:var(--r);padding:16px;transition:border-color .15s,transform .15s;}
+/* PLAYER CARD — clickable */
+.pcard{background:var(--s1);border:1px solid var(--border);border-radius:var(--r);padding:16px;transition:border-color .15s,transform .15s;cursor:pointer;}
 .pcard:hover{border-color:var(--border2);transform:translateY(-1px);}
 .pcard-name{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;margin-bottom:2px;}
 .pcard-handle{font-size:11px;color:var(--muted);}
@@ -206,7 +190,13 @@ tbody td{padding:10px 14px;font-size:13px;color:var(--text);vertical-align:middl
 .ps-label{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-family:'Syne',sans-serif;font-weight:600;}
 .ps-val{font-family:'Syne',sans-serif;font-weight:800;font-size:17px;}
 
-/* MODAL */
+/* PLAYER QUICK NAV */
+.pcard-nav{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap;}
+.pnav-btn{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:20px;font-size:10.5px;font-family:'Syne',sans-serif;font-weight:600;cursor:pointer;border:1px solid var(--border2);background:var(--s2);color:var(--dim);transition:all .15s;}
+.pnav-btn:hover{color:var(--text);border-color:var(--border-act);}
+.pnav-fn{color:var(--fn);border-color:var(--fn-b);background:var(--fn-s);}
+.pnav-eafc{color:var(--eafc);border-color:var(--eafc-b);background:var(--eafc-s);}
+
 .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:200;align-items:center;justify-content:center;backdrop-filter:blur(5px);}
 .overlay.open{display:flex;}
 .modal{background:var(--s1);border:1px solid var(--border2);border-radius:14px;padding:26px;width:500px;max-width:95vw;max-height:90vh;overflow-y:auto;animation:fadeUp .2s ease;}
@@ -215,7 +205,6 @@ tbody td{padding:10px 14px;font-size:13px;color:var(--text);vertical-align:middl
 .mclose{background:none;border:none;color:var(--muted);cursor:pointer;font-size:16px;padding:4px;line-height:1;}
 .mclose:hover{color:var(--text);}
 
-/* FORM */
 .fr{margin-bottom:14px;}
 .flabel{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:5px;font-family:'Syne',sans-serif;font-weight:600;}
 .finput,.fselect,.ftextarea{width:100%;background:var(--s2);border:1px solid var(--border2);border-radius:var(--rs);padding:8px 11px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;outline:none;transition:border-color .15s;}
@@ -224,29 +213,27 @@ tbody td{padding:10px 14px;font-size:13px;color:var(--text);vertical-align:middl
 .ftextarea{resize:vertical;min-height:70px;}
 .fr2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 
-/* SCROLLBAR */
 ::-webkit-scrollbar{width:4px;height:4px;}
 ::-webkit-scrollbar-track{background:transparent;}
 ::-webkit-scrollbar-thumb{background:var(--s4);border-radius:10px;}
 
-/* EMPTY */
 .empty{text-align:center;padding:40px;color:var(--muted);}
 .empty-ico{font-size:28px;margin-bottom:10px;}
+
+/* KPI SALAIRES */
+.kpi-salaires{background:linear-gradient(135deg,rgba(212,168,67,0.08),rgba(212,168,67,0.03));border:1px solid rgba(212,168,67,0.2);border-radius:var(--r);padding:18px 20px;}
 </style>
 </head>
 <body>
 
-<!-- LOADING -->
 <div class="loading-screen" id="loadingScreen">
   <div class="loading-logo">AGENT<span>.</span></div>
   <div class="loading-bar"><div class="loading-fill"></div></div>
   <div class="loading-text">Connexion à Supabase...</div>
 </div>
 
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
-<!-- SIDEBAR -->
 <aside class="sidebar">
   <div class="logo-area">
     <div class="logo-mark">AGENT<span>.</span></div>
@@ -267,7 +254,7 @@ tbody td{padding:10px 14px;font-size:13px;color:var(--text);vertical-align:middl
     <div class="nav-item" onclick="go('eafc-joueurs',this)"><span class="nav-icon">◉</span>Roster EA FC</div>
     <div class="nav-item" onclick="go('eafc-stats',this)"><span class="nav-icon">◎</span>Statistiques EAFC</div>
     <div class="nav-label">Business</div>
-    <div class="nav-item" onclick="go('offres',this)"><span class="nav-icon">◇</span>Offres & Contrats</div>
+    <div class="nav-item" onclick="go('contrats',this)"><span class="nav-icon">◇</span>Contrats</div>
     <div class="nav-item" onclick="go('negociations',this)"><span class="nav-icon">⟳</span>Négociations</div>
     <div class="nav-item" onclick="go('contacts',this)"><span class="nav-icon">◑</span>Contacts</div>
     <div class="nav-label">Organisation</div>
@@ -277,7 +264,6 @@ tbody td{padding:10px 14px;font-size:13px;color:var(--text);vertical-align:middl
   <div class="sidebar-foot" id="datefoot"></div>
 </aside>
 
-<!-- MAIN -->
 <main class="main">
   <div class="topbar">
     <div class="topbar-title" id="topTitle">Dashboard</div>
@@ -291,17 +277,23 @@ tbody td{padding:10px 14px;font-size:13px;color:var(--text);vertical-align:middl
     <!-- DASHBOARD -->
     <div class="section active" id="sec-dashboard">
       <div class="g4 mb20">
-        <div class="card"><div class="card-label">Roster total</div><div class="card-val" id="kpi-total">—</div><div class="card-delta neu" id="kpi-total-d">— FN · — EA FC</div></div>
-        <div class="card"><div class="card-label">Offres actives</div><div class="card-val" id="kpi-offres">—</div><div class="card-delta up" id="kpi-offres-d"></div></div>
+        <div class="card"><div class="card-label">Roster total</div><div class="card-val" id="kpi-total">—</div><div class="card-delta neu" id="kpi-total-d"></div></div>
+        <div class="card"><div class="card-label">Contrats actifs</div><div class="card-val" id="kpi-contrats">—</div><div class="card-delta up" id="kpi-contrats-d"></div></div>
         <div class="card"><div class="card-label">Négociations</div><div class="card-val" id="kpi-nego">—</div><div class="card-delta neu">en cours</div></div>
         <div class="card"><div class="card-label">Tâches urgentes</div><div class="card-val" id="kpi-tasks">—</div><div class="card-delta dn" id="kpi-tasks-d"></div></div>
       </div>
+      <!-- KPI SALAIRES -->
+      <div class="kpi-salaires mb20">
+        <div class="card-label" style="color:var(--gold);">💰 Total salaires générés</div>
+        <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:36px;color:var(--gold);" id="kpi-salaires-total">—</div>
+        <div style="font-size:11.5px;color:var(--muted);margin-top:4px;" id="kpi-salaires-detail"></div>
+      </div>
       <div class="g21 mb20">
-        <div class="card"><div class="card-label mb12">Top Roster</div><div id="dash-top"></div></div>
+        <div class="card"><div class="card-label mb12">Top Roster — Power Ranking</div><div id="dash-top"></div></div>
         <div class="card"><div class="card-label mb12">Tâches urgentes</div><div id="dash-tasks"></div></div>
       </div>
       <div class="g2">
-        <div class="card"><div class="card-label mb12">Offres récentes</div><div id="dash-offres"></div></div>
+        <div class="card"><div class="card-label mb12">Contrats récents</div><div id="dash-contrats"></div></div>
         <div class="card"><div class="card-label mb12">Négociations</div><div id="dash-nego"></div></div>
       </div>
     </div>
@@ -349,13 +341,13 @@ tbody td{padding:10px 14px;font-size:13px;color:var(--text);vertical-align:middl
       <div class="g3" id="eafc-stats-grid"></div>
     </div>
 
-    <!-- OFFRES -->
-    <div class="section" id="sec-offres">
-      <div class="sh"><div class="stitle">Offres & Contrats</div><button class="btn btn-gold" onclick="openModal('addOffre')">+ Nouvelle offre</button></div>
+    <!-- CONTRATS -->
+    <div class="section" id="sec-contrats">
+      <div class="sh"><div class="stitle">Contrats</div><button class="btn btn-gold" onclick="openModal('addContrat')">+ Nouveau contrat</button></div>
       <div class="gdiv"><div class="gdiv-line"></div><div class="gdiv-label gdl-fn">⚡ Fortnite</div><div class="gdiv-line"></div></div>
-      <div class="tw mb20"><table><thead><tr><th>Joueur</th><th>Type</th><th>Organisation</th><th>Montant</th><th>Statut</th><th>Échéance</th><th></th></tr></thead><tbody id="offres-fn-tbody"></tbody></table></div>
+      <div class="tw mb20"><table><thead><tr><th>Joueur</th><th>Organisation</th><th>Montant/mois</th><th>Durée</th><th>Total</th><th>Statut</th><th>Début</th><th>Fin</th><th></th></tr></thead><tbody id="contrats-fn-tbody"></tbody></table></div>
       <div class="gdiv"><div class="gdiv-line"></div><div class="gdiv-label gdl-eafc">⚽ EA FC</div><div class="gdiv-line"></div></div>
-      <div class="tw"><table><thead><tr><th>Joueur</th><th>Type</th><th>Organisation</th><th>Montant</th><th>Statut</th><th>Échéance</th><th></th></tr></thead><tbody id="offres-eafc-tbody"></tbody></table></div>
+      <div class="tw"><table><thead><tr><th>Joueur</th><th>Organisation</th><th>Montant/mois</th><th>Durée</th><th>Total</th><th>Statut</th><th>Début</th><th>Fin</th><th></th></tr></thead><tbody id="contrats-eafc-tbody"></tbody></table></div>
     </div>
 
     <!-- NÉGOCIATIONS -->
@@ -413,30 +405,30 @@ tbody td{padding:10px 14px;font-size:13px;color:var(--text);vertical-align:middl
 <!-- MODALS -->
 <div class="overlay" id="overlay" onclick="closeOnBg(event)">
 
-  <!-- ADD FN -->
+  <!-- ADD/EDIT FN -->
   <div class="modal" id="m-addFN" style="display:none">
     <div class="mhead"><div class="mtitle">⚡ Joueur Fortnite</div><button class="mclose" onclick="closeModal()">✕</button></div>
     <input type="hidden" id="fn-edit-id">
-    <div class="fr"><label class="flabel">Pseudo</label><input class="finput" id="fn-pseudo" placeholder="ex: Noia"></div>
+    <div class="fr"><label class="flabel">Pseudo</label><input class="finput" id="fn-pseudo"></div>
     <div class="fr2 fr"><div><label class="flabel">Twitter</label><input class="finput" id="fn-twitter" placeholder="@handle"></div><div><label class="flabel">Couleur</label><select class="fselect" id="fn-color"><option value="av-fn">Bleu FN</option><option value="av-gold">Or</option><option value="av-purple">Violet</option><option value="av-green">Vert</option><option value="av-teal">Teal</option></select></div></div>
-    <div class="fr2 fr"><div><label class="flabel">FT Rank</label><input class="finput" id="fn-ft-rank" type="number" placeholder="#"></div><div><label class="flabel">FT Points</label><input class="finput" id="fn-ft-pts" type="number" placeholder="pts"></div></div>
-    <div class="fr2 fr"><div><label class="flabel">GP Rank</label><input class="finput" id="fn-gp-rank" type="number" placeholder="#"></div><div><label class="flabel">GP Points</label><input class="finput" id="fn-gp-pts" type="number" placeholder="pts"></div></div>
-    <div class="fr2 fr"><div><label class="flabel">Followers Twitter</label><input class="finput" id="fn-followers" type="number" placeholder="12000"></div><div><label class="flabel">Forme</label><select class="fselect" id="fn-forme"><option value="hot">🔥 Excellente</option><option value="good">↑ Bonne</option><option value="avg">→ Moyenne</option><option value="low">↓ Basse</option></select></div></div>
+    <div class="fr2 fr"><div><label class="flabel">FT Rank</label><input class="finput" id="fn-ft-rank" type="number"></div><div><label class="flabel">FT Points</label><input class="finput" id="fn-ft-pts" type="number"></div></div>
+    <div class="fr2 fr"><div><label class="flabel">GP Rank</label><input class="finput" id="fn-gp-rank" type="number"></div><div><label class="flabel">GP Points</label><input class="finput" id="fn-gp-pts" type="number"></div></div>
+    <div class="fr2 fr"><div><label class="flabel">Followers Twitter</label><input class="finput" id="fn-followers" type="number"></div><div><label class="flabel">Forme</label><select class="fselect" id="fn-forme"><option value="hot">🔥 Excellente</option><option value="good">↑ Bonne</option><option value="avg">→ Moyenne</option><option value="low">↓ Basse</option></select></div></div>
     <div class="fr"><label class="flabel">Notes</label><textarea class="ftextarea" id="fn-notes"></textarea></div>
     <div class="flex g6" style="justify-content:flex-end"><button class="btn btn-ghost" onclick="closeModal()">Annuler</button><button class="btn btn-fn" id="fn-save-btn" onclick="saveFNPlayer()">Enregistrer</button></div>
   </div>
 
-  <!-- ADD EAFC -->
+  <!-- ADD/EDIT EAFC -->
   <div class="modal" id="m-addEAFC" style="display:none">
     <div class="mhead"><div class="mtitle">⚽ Joueur EA FC</div><button class="mclose" onclick="closeModal()">✕</button></div>
     <input type="hidden" id="eafc-edit-id">
-    <div class="fr"><label class="flabel">Pseudo</label><input class="finput" id="eafc-pseudo" placeholder="ex: Magicien"></div>
+    <div class="fr"><label class="flabel">Pseudo</label><input class="finput" id="eafc-pseudo"></div>
     <div class="fr2 fr"><div><label class="flabel">Twitter</label><input class="finput" id="eafc-twitter" placeholder="@handle"></div><div><label class="flabel">Couleur</label><select class="fselect" id="eafc-color"><option value="av-eafc">Orange EA FC</option><option value="av-gold">Or</option><option value="av-purple">Violet</option><option value="av-green">Vert</option><option value="av-teal">Teal</option></select></div></div>
-    <div class="fr2 fr"><div><label class="flabel">Division Rivals</label><input class="finput" id="eafc-div" placeholder="Division 1"></div><div><label class="flabel">Rang</label><input class="finput" id="eafc-rank" placeholder="Elite"></div></div>
-    <div class="fr2 fr"><div><label class="flabel">Ratio V/D</label><input class="finput" id="eafc-wl" placeholder="68%"></div><div><label class="flabel">Buts/partie</label><input class="finput" id="eafc-goals" placeholder="3.2"></div></div>
-    <div class="fr2 fr"><div><label class="flabel">Followers</label><input class="finput" id="eafc-followers" type="number" placeholder="5000"></div><div><label class="flabel">Forme</label><select class="fselect" id="eafc-forme"><option value="hot">🔥 Excellente</option><option value="good">↑ Bonne</option><option value="avg">→ Moyenne</option><option value="low">↓ Basse</option></select></div></div>
+    <div class="fr2 fr"><div><label class="flabel">Division Rivals</label><input class="finput" id="eafc-div"></div><div><label class="flabel">Rang</label><input class="finput" id="eafc-rank"></div></div>
+    <div class="fr2 fr"><div><label class="flabel">Ratio V/D</label><input class="finput" id="eafc-wl"></div><div><label class="flabel">Buts/partie</label><input class="finput" id="eafc-goals"></div></div>
+    <div class="fr2 fr"><div><label class="flabel">Followers</label><input class="finput" id="eafc-followers" type="number"></div><div><label class="flabel">Forme</label><select class="fselect" id="eafc-forme"><option value="hot">🔥 Excellente</option><option value="good">↑ Bonne</option><option value="avg">→ Moyenne</option><option value="low">↓ Basse</option></select></div></div>
     <div class="fr"><label class="flabel">Notes</label><textarea class="ftextarea" id="eafc-notes"></textarea></div>
-    <div class="flex g6" style="justify-content:flex-end"><button class="btn btn-ghost" onclick="closeModal()">Annuler</button><button class="btn btn-eafc" id="eafc-save-btn" onclick="saveEAFCPlayer()">Enregistrer</button></div>
+    <div class="flex g6" style="justify-content:flex-end"><button class="btn btn-ghost" onclick="closeModal()">Annuler</button><button class="btn btn-eafc" onclick="saveEAFCPlayer()">Enregistrer</button></div>
   </div>
 
   <!-- UPDATE RANKING -->
@@ -461,15 +453,17 @@ tbody td{padding:10px 14px;font-size:13px;color:var(--text);vertical-align:middl
     <div class="flex g6" style="justify-content:flex-end;margin-top:12px;"><button class="btn btn-ghost" onclick="closeModal()">Annuler</button><button class="btn btn-eafc" onclick="saveEAFCStats()">Enregistrer</button></div>
   </div>
 
-  <!-- ADD OFFRE -->
-  <div class="modal" id="m-addOffre" style="display:none">
-    <div class="mhead"><div class="mtitle">Nouvelle offre</div><button class="mclose" onclick="closeModal()">✕</button></div>
-    <div class="fr"><label class="flabel">Joueur</label><select class="fselect" id="o-joueur"></select></div>
-    <div class="fr2 fr"><div><label class="flabel">Type</label><select class="fselect" id="o-type"><option>Contrat équipe</option><option>Sponsoring</option><option>Streaming</option><option>Droits image</option><option>Événement</option><option>Autre</option></select></div><div><label class="flabel">Montant</label><input class="finput" id="o-montant" placeholder="ex: 5 000 €/mois"></div></div>
-    <div class="fr"><label class="flabel">Organisation</label><input class="finput" id="o-org" placeholder="ex: Team Vitality"></div>
-    <div class="fr2 fr"><div><label class="flabel">Statut</label><select class="fselect" id="o-statut"><option value="pending">En attente</option><option value="nego">En négociation</option><option value="signed">Signé</option><option value="refused">Refusé</option></select></div><div><label class="flabel">Échéance</label><input class="finput" id="o-date" type="date"></div></div>
-    <div class="fr"><label class="flabel">Notes</label><textarea class="ftextarea" id="o-notes"></textarea></div>
-    <div class="flex g6" style="justify-content:flex-end"><button class="btn btn-ghost" onclick="closeModal()">Annuler</button><button class="btn btn-gold" onclick="addOffre()">Enregistrer</button></div>
+  <!-- ADD/EDIT CONTRAT -->
+  <div class="modal" id="m-addContrat" style="display:none">
+    <div class="mhead"><div class="mtitle" id="contrat-modal-title">Nouveau contrat</div><button class="mclose" onclick="closeModal()">✕</button></div>
+    <input type="hidden" id="contrat-edit-id">
+    <div class="fr"><label class="flabel">Joueur</label><select class="fselect" id="c2-joueur"></select></div>
+    <div class="fr"><label class="flabel">Organisation</label><input class="finput" id="c2-org"></div>
+    <div class="fr2 fr"><div><label class="flabel">Montant / mois (€)</label><input class="finput" id="c2-montant" type="number" placeholder="ex: 200"></div><div><label class="flabel">Durée (mois)</label><input class="finput" id="c2-duree" type="number" placeholder="ex: 12"></div></div>
+    <div class="fr2 fr"><div><label class="flabel">Date début</label><input class="finput" id="c2-debut" type="date"></div><div><label class="flabel">Date fin</label><input class="finput" id="c2-fin" type="date"></div></div>
+    <div class="fr"><label class="flabel">Statut</label><select class="fselect" id="c2-statut"><option value="en_cours">✅ En cours</option><option value="termine">⬜ Terminé</option><option value="signed">Signé (en attente)</option></select></div>
+    <div class="fr"><label class="flabel">Notes</label><textarea class="ftextarea" id="c2-notes"></textarea></div>
+    <div class="flex g6" style="justify-content:flex-end"><button class="btn btn-ghost" onclick="closeModal()">Annuler</button><button class="btn btn-gold" onclick="saveContrat()">Enregistrer</button></div>
   </div>
 
   <!-- ADD NEGO -->
@@ -478,7 +472,7 @@ tbody td{padding:10px 14px;font-size:13px;color:var(--text);vertical-align:middl
     <div class="fr"><label class="flabel">Joueur</label><select class="fselect" id="n-joueur"></select></div>
     <div class="fr"><label class="flabel">Organisation</label><input class="finput" id="n-org"></div>
     <div class="fr"><label class="flabel">Étape</label><select class="fselect" id="n-etape"><option value="0">1 — Premier contact</option><option value="1">2 — Proposition reçue</option><option value="2">3 — Contre-offre</option><option value="3">4 — Due diligence</option><option value="4">5 — Signature</option></select></div>
-    <div class="fr2 fr"><div><label class="flabel">Valeur</label><input class="finput" id="n-valeur" placeholder="6 000 €/mois"></div><div><label class="flabel">Priorité</label><select class="fselect" id="n-prio"><option value="high">🔴 Haute</option><option value="med">🟡 Moyenne</option><option value="low">🟢 Basse</option></select></div></div>
+    <div class="fr2 fr"><div><label class="flabel">Valeur</label><input class="finput" id="n-valeur"></div><div><label class="flabel">Priorité</label><select class="fselect" id="n-prio"><option value="high">🔴 Haute</option><option value="med">🟡 Moyenne</option><option value="low">🟢 Basse</option></select></div></div>
     <div class="fr"><label class="flabel">Notes</label><textarea class="ftextarea" id="n-notes"></textarea></div>
     <div class="flex g6" style="justify-content:flex-end"><button class="btn btn-ghost" onclick="closeModal()">Annuler</button><button class="btn btn-gold" onclick="addNego()">Enregistrer</button></div>
   </div>
@@ -486,12 +480,12 @@ tbody td{padding:10px 14px;font-size:13px;color:var(--text);vertical-align:middl
   <!-- ADD CONTACT -->
   <div class="modal" id="m-addContact" style="display:none">
     <div class="mhead"><div class="mtitle">Nouveau contact</div><button class="mclose" onclick="closeModal()">✕</button></div>
-    <div class="fr2 fr"><div><label class="flabel">Prénom</label><input class="finput" id="c-prenom"></div><div><label class="flabel">Nom</label><input class="finput" id="c-nom"></div></div>
-    <div class="fr2 fr"><div><label class="flabel">Rôle</label><input class="finput" id="c-role" placeholder="GM, Scout..."></div><div><label class="flabel">Organisation</label><input class="finput" id="c-org"></div></div>
-    <div class="fr"><label class="flabel">Email</label><input class="finput" id="c-email" type="email"></div>
-    <div class="fr2 fr"><div><label class="flabel">Téléphone</label><input class="finput" id="c-tel"></div><div><label class="flabel">Catégorie</label><select class="fselect" id="c-cat"><option value="org">Organisation</option><option value="scout">Scout/Recruteur</option><option value="media">Média</option><option value="sponsor">Sponsor</option><option value="tournoi">Tournoi</option><option value="agent">Agent</option><option value="autre">Autre</option></select></div></div>
-    <div class="fr"><label class="flabel">Jeux associés</label><select class="fselect" id="c-jeux"><option value="fn">⚡ Fortnite</option><option value="eafc">⚽ EA FC</option><option value="both">FN + EA FC</option></select></div>
-    <div class="fr"><label class="flabel">Notes</label><textarea class="ftextarea" id="c-notes"></textarea></div>
+    <div class="fr2 fr"><div><label class="flabel">Prénom</label><input class="finput" id="ct-prenom"></div><div><label class="flabel">Nom</label><input class="finput" id="ct-nom"></div></div>
+    <div class="fr2 fr"><div><label class="flabel">Rôle</label><input class="finput" id="ct-role"></div><div><label class="flabel">Organisation</label><input class="finput" id="ct-org"></div></div>
+    <div class="fr"><label class="flabel">Email</label><input class="finput" id="ct-email" type="email"></div>
+    <div class="fr2 fr"><div><label class="flabel">Téléphone</label><input class="finput" id="ct-tel"></div><div><label class="flabel">Catégorie</label><select class="fselect" id="ct-cat"><option value="org">Organisation</option><option value="scout">Scout/Recruteur</option><option value="media">Média</option><option value="sponsor">Sponsor</option><option value="tournoi">Tournoi</option><option value="agent">Agent</option><option value="autre">Autre</option></select></div></div>
+    <div class="fr"><label class="flabel">Jeux associés</label><select class="fselect" id="ct-jeux"><option value="fn">⚡ Fortnite</option><option value="eafc">⚽ EA FC</option><option value="both">FN + EA FC</option></select></div>
+    <div class="fr"><label class="flabel">Notes</label><textarea class="ftextarea" id="ct-notes"></textarea></div>
     <div class="flex g6" style="justify-content:flex-end"><button class="btn btn-ghost" onclick="closeModal()">Annuler</button><button class="btn btn-gold" onclick="addContact()">Enregistrer</button></div>
   </div>
 
@@ -507,229 +501,201 @@ tbody td{padding:10px 14px;font-size:13px;color:var(--text);vertical-align:middl
 </div>
 
 <script>
-// ═══════════════════════════════════════
-//  SUPABASE CONFIG
-// ═══════════════════════════════════════
 const SUPA_URL = 'https://jshnvhfbxbttpikabfal.supabase.co';
 const SUPA_KEY = 'sb_publishable_lDRBQnjYx_h7EYN06-3t1w_1lrqGTMC';
-
-const headers = {
-  'Content-Type': 'application/json',
-  'apikey': SUPA_KEY,
-  'Authorization': `Bearer ${SUPA_KEY}`,
-  'Prefer': 'return=representation'
-};
+const headers = {'Content-Type':'application/json','apikey':SUPA_KEY,'Authorization':`Bearer ${SUPA_KEY}`,'Prefer':'return=representation'};
 
 async function sb(table, method='GET', body=null, query='') {
   setSyncing(true);
   try {
-    const res = await fetch(`${SUPA_URL}/rest/v1/${table}${query}`, {
-      method, headers,
-      body: body ? JSON.stringify(body) : null
-    });
-    if (!res.ok) {
-      const err = await res.json();
-      throw new Error(err.message || res.statusText);
-    }
+    const res = await fetch(`${SUPA_URL}/rest/v1/${table}${query}`,{method,headers,body:body?JSON.stringify(body):null});
+    if(!res.ok){const e=await res.json();throw new Error(e.message||res.statusText);}
     const text = await res.text();
     setSyncing(false);
-    return text ? JSON.parse(text) : [];
+    return text?JSON.parse(text):[];
   } catch(e) {
-    setSyncing(false, true);
-    toast('Erreur : ' + e.message, 'error');
+    setSyncing(false,true);
+    toast('Erreur : '+e.message,'error');
     throw e;
   }
 }
 
-const get  = (t, q='')    => sb(t, 'GET', null, q);
-const post = (t, b)       => sb(t, 'POST', b);
-const patch= (t, id, b)   => sb(t, 'PATCH', b, `?id=eq.${id}`);
-const del  = (t, id)      => sb(t, 'DELETE', null, `?id=eq.${id}`);
+const get   = (t,q='')   => sb(t,'GET',null,q);
+const post  = (t,b)      => sb(t,'POST',b);
+const patch = (t,id,b)   => sb(t,'PATCH',b,`?id=eq.${id}`);
+const del   = (t,id)     => sb(t,'DELETE',null,`?id=eq.${id}`);
 
-// ═══════════════════════════════════════
-//  CACHE LOCAL
-// ═══════════════════════════════════════
-let DB = { fn: [], eafc: [], offres: [], negociations: [], contacts: [], taches: [] };
+let DB = {fn:[],eafc:[],offres:[],negociations:[],contacts:[],taches:[]};
 
 async function loadAll() {
-  const [fn, eafc, offres, nego, contacts, taches] = await Promise.all([
-    get('fn_players', '?order=ft_rank.asc.nullslast'),
-    get('eafc_players', '?order=created_at.asc'),
-    get('offres', '?order=created_at.desc'),
-    get('negociations', '?order=created_at.desc'),
-    get('contacts', '?order=nom.asc'),
-    get('taches', '?order=created_at.desc')
+  const [fn,eafc,offres,nego,contacts,taches] = await Promise.all([
+    get('fn_players','?order=ft_rank.asc.nullslast'),
+    get('eafc_players','?order=created_at.asc'),
+    get('offres','?order=created_at.desc'),
+    get('negociations','?order=created_at.desc'),
+    get('contacts','?order=nom.asc'),
+    get('taches','?order=created_at.desc')
   ]);
-  DB.fn = fn; DB.eafc = eafc; DB.offres = offres;
-  DB.negociations = nego; DB.contacts = contacts; DB.taches = taches;
+  DB.fn=fn; DB.eafc=eafc; DB.offres=offres;
+  DB.negociations=nego; DB.contacts=contacts; DB.taches=taches;
 }
 
-// ═══════════════════════════════════════
-//  UI HELPERS
-// ═══════════════════════════════════════
-function setSyncing(on, err=false) {
-  const dot = document.getElementById('syncDot');
-  const lbl = document.getElementById('syncLabel');
-  if(err) { dot.className='sync-dot error'; lbl.textContent='Erreur'; }
-  else if(on) { dot.className='sync-dot syncing'; lbl.textContent='Sync...'; }
-  else { dot.className='sync-dot'; lbl.textContent='Connecté'; }
+function setSyncing(on,err=false){
+  const dot=document.getElementById('syncDot'),lbl=document.getElementById('syncLabel');
+  if(err){dot.className='sync-dot error';lbl.textContent='Erreur';}
+  else if(on){dot.className='sync-dot syncing';lbl.textContent='Sync...';}
+  else{dot.className='sync-dot';lbl.textContent='Connecté';}
 }
 
 let toastTimer;
-function toast(msg, type='success') {
-  const el = document.getElementById('toast');
-  el.textContent = msg;
-  el.className = `toast ${type} show`;
+function toast(msg,type='success'){
+  const el=document.getElementById('toast');
+  el.textContent=msg; el.className=`toast ${type} show`;
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => el.classList.remove('show'), 3000);
+  toastTimer=setTimeout(()=>el.classList.remove('show'),3000);
 }
 
-function av(p, size=38, game='fn') {
-  const color = p.color || (game==='fn' ? 'av-fn' : 'av-eafc');
-  const fs = Math.round(size * 0.38);
-  if(p.img_url) return `<div class="av" style="width:${size}px;height:${size}px;"><img src="${p.img_url}" alt="${p.pseudo}"></div>`;
+function av(p,size=38,game='fn'){
+  const color=p.color||(game==='fn'?'av-fn':'av-eafc');
+  const fs=Math.round(size*.38);
+  if(p.img_url) return `<div class="av" style="width:${size}px;height:${size}px;"><img src="${p.img_url}"></div>`;
   return `<div class="av ${color}" style="width:${size}px;height:${size}px;font-size:${fs}px;">${(p.pseudo||'?')[0]}</div>`;
 }
 
-function formeTag(f) {
-  const m={hot:'t-green',good:'t-gold',avg:'t-yellow',low:'t-red'};
-  const l={hot:'🔥 Excellent',good:'↑ Bonne',avg:'→ Moyenne',low:'↓ Basse'};
-  return `<span class="tag ${m[f]||'t-muted'}">${l[f]||f}</span>`;
-}
-function prioTag(p) {
-  const m={high:'t-red',med:'t-yellow',low:'t-green'};
-  const l={high:'🔴 Haute',med:'🟡 Moyenne',low:'🟢 Basse'};
-  return `<span class="tag ${m[p]||'t-muted'}">${l[p]||p}</span>`;
-}
-function statutTag(s) {
-  const m={pending:'t-yellow',nego:'t-gold',signed:'t-green',refused:'t-red'};
-  const l={pending:'En attente',nego:'En négociation',signed:'Signé ✓',refused:'Refusé'};
+function formeTag(f){const m={hot:'t-green',good:'t-gold',avg:'t-yellow',low:'t-red'};const l={hot:'🔥 Excellent',good:'↑ Bonne',avg:'→ Moyenne',low:'↓ Basse'};return `<span class="tag ${m[f]||'t-muted'}">${l[f]||f}</span>`;}
+function prioTag(p){const m={high:'t-red',med:'t-yellow',low:'t-green'};const l={high:'🔴 Haute',med:'🟡 Moyenne',low:'🟢 Basse'};return `<span class="tag ${m[p]||'t-muted'}">${l[p]||p}</span>`;}
+
+function statutContratTag(s){
+  const m={en_cours:'t-encours',termine:'t-termine',signed:'t-gold',refused:'t-red',pending:'t-yellow',nego:'t-gold'};
+  const l={en_cours:'✅ En cours',termine:'⬜ Terminé',signed:'Signé',refused:'Refusé',pending:'En attente',nego:'En négociation'};
   return `<span class="tag ${m[s]||'t-muted'}">${l[s]||s}</span>`;
 }
-function rkCircle(i) {
-  const cls=['rk1','rk2','rk3'];
-  return `<div class="rk ${i<3?cls[i]:'rkn'}">${i+1}</div>`;
-}
-function negoBar(etape) {
+
+function rkCircle(i){const cls=['rk1','rk2','rk3'];return `<div class="rk ${i<3?cls[i]:'rkn'}">${i+1}</div>`;}
+
+function negoBar(etape){
   const steps=['1er contact','Proposition','Contre-offre','Due diligence','Signature'];
-  etape = parseInt(etape)||0;
+  etape=parseInt(etape)||0;
   let h='<div class="nego-track">';
-  steps.forEach((s,i)=>{
-    h+=`<div class="ndot ${i<etape?'done':i===etape?'cur':''}" title="${s}"></div>`;
-    if(i<steps.length-1) h+=`<div class="nline ${i<etape?'done':''}"></div>`;
-  });
+  steps.forEach((s,i)=>{h+=`<div class="ndot ${i<etape?'done':i===etape?'cur':''}" title="${s}"></div>`;if(i<steps.length-1)h+=`<div class="nline ${i<etape?'done':''}"></div>`;});
   return h+`</div><div class="nego-label">${steps[etape]} (${etape+1}/${steps.length})</div>`;
 }
+
 function fmtDate(d){if(!d)return'—';return new Date(d).toLocaleDateString('fr-FR',{day:'2-digit',month:'short',year:'numeric'});}
 function fmtNum(n){if(!n&&n!==0)return'—';n=parseInt(n);if(n>=1000000)return(n/1e6).toFixed(1)+'M';if(n>=1000)return(n/1000).toFixed(1)+'k';return n;}
+function fmtEuro(n){if(!n)return'—';return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n);}
 function catLabel(c){const m={org:'Organisation',scout:'Scout/Recruteur',media:'Média',sponsor:'Sponsor',tournoi:'Tournoi',agent:'Agent',autre:'Autre'};return m[c]||c;}
 function catTag(c){const m={org:'t-fn',scout:'t-gold',media:'t-purple',sponsor:'t-eafc',tournoi:'t-green',agent:'t-muted',autre:'t-muted'};return `<span class="tag ${m[c]||'t-muted'}">${catLabel(c)}</span>`;}
-function playerOptions(withNone=false) {
-  let h = withNone ? '<option value="">— Aucun —</option>' : '';
-  DB.fn.forEach(p => h+=`<option value="fn__${p.id}">${p.pseudo} (FN)</option>`);
-  DB.eafc.forEach(p => h+=`<option value="eafc__${p.id}">${p.pseudo} (EA FC)</option>`);
+
+function playerOptions(withNone=false){
+  let h=withNone?'<option value="">— Aucun —</option>':'';
+  DB.fn.forEach(p=>h+=`<option value="fn__${p.id}">${p.pseudo} (FN)</option>`);
+  DB.eafc.forEach(p=>h+=`<option value="eafc__${p.id}">${p.pseudo} (EA FC)</option>`);
   return h;
 }
-function resolvePlayer(val) {
-  if(!val) return {name:'—', game:null, id:null};
-  const [game, id] = val.split('__');
-  const list = game==='fn' ? DB.fn : DB.eafc;
-  const p = list.find(x => x.id === id);
-  return {name: p?.pseudo||'?', game, id};
+
+function resolvePlayer(val){
+  if(!val)return{name:'—',game:null,id:null};
+  const[game,id]=val.split('__');
+  const list=game==='fn'?DB.fn:DB.eafc;
+  const p=list.find(x=>x.id===id);
+  return{name:p?.pseudo||'?',game,id,player:p};
 }
 
-// ═══════════════════════════════════════
-//  NAV
-// ═══════════════════════════════════════
-const titles = {
-  dashboard:'Dashboard','fn-joueurs':'Roster Fortnite','fn-ranking':'Power Ranking',
-  'fn-stats':'Stats Fortnite','eafc-joueurs':'Roster EA FC','eafc-stats':'Stats EA FC',
-  offres:'Offres & Contrats',negociations:'Négociations',contacts:'Contacts',
-  taches:'Tâches & Agenda',reseaux:'Réseaux Sociaux'
-};
+function calcTotalSalaires(){
+  const contrats=DB.offres.filter(o=>o.statut==='en_cours'||o.statut==='termine'||o.statut==='signed');
+  let total=0;
+  let details=[];
+  contrats.forEach(o=>{
+    const montant=parseFloat(o.montant)||0;
+    const duree=parseInt(o.duree_mois)||0;
+    const t=montant*duree;
+    if(t>0){
+      total+=t;
+      const pval=o.fn_player_id?`fn__${o.fn_player_id}`:`eafc__${o.eafc_player_id}`;
+      const{name}=resolvePlayer(pval);
+      details.push(`${name}: ${fmtEuro(t)}`);
+    }
+  });
+  return{total,details};
+}
 
-function go(id, el) {
+const titles={dashboard:'Dashboard','fn-joueurs':'Roster Fortnite','fn-ranking':'Power Ranking','fn-stats':'Stats Fortnite','eafc-joueurs':'Roster EA FC','eafc-stats':'Stats EA FC',contrats:'Contrats',negociations:'Négociations',contacts:'Contacts',taches:'Tâches & Agenda',reseaux:'Réseaux Sociaux'};
+
+function go(id,el){
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
   document.getElementById('sec-'+id).classList.add('active');
-  if(el) el.classList.add('active');
-  document.getElementById('topTitle').textContent = titles[id]||'';
+  if(el)el.classList.add('active');
+  document.getElementById('topTitle').textContent=titles[id]||'';
   render(id);
 }
 
-function render(id) {
-  const map = {
-    dashboard: renderDashboard, 'fn-joueurs': renderFNJoueurs,
-    'fn-ranking': renderFNRanking, 'fn-stats': renderFNStats,
-    'eafc-joueurs': renderEAFCJoueurs, 'eafc-stats': renderEAFCStats,
-    offres: renderOffres, negociations: renderNego,
-    contacts: renderContacts, taches: renderTaches, reseaux: renderReseaux
-  };
-  if(map[id]) map[id]();
+function render(id){
+  const map={dashboard:renderDashboard,'fn-joueurs':renderFNJoueurs,'fn-ranking':renderFNRanking,'fn-stats':renderFNStats,'eafc-joueurs':renderEAFCJoueurs,'eafc-stats':renderEAFCStats,contrats:renderContrats,negociations:renderNego,contacts:renderContacts,taches:renderTaches,reseaux:renderReseaux};
+  if(map[id])map[id]();
 }
 
-// ═══════════════════════════════════════
-//  DASHBOARD
-// ═══════════════════════════════════════
-function renderDashboard() {
-  const offAct = DB.offres.filter(o=>o.statut==='nego'||o.statut==='pending').length;
-  const tasks = DB.taches.filter(t=>!t.done&&t.priorite==='urgent').length;
-  document.getElementById('kpi-total').textContent = DB.fn.length + DB.eafc.length;
-  document.getElementById('kpi-total-d').textContent = `${DB.fn.length} FN · ${DB.eafc.length} EA FC`;
-  document.getElementById('kpi-offres').textContent = offAct;
-  document.getElementById('kpi-offres-d').textContent = DB.offres.filter(o=>o.statut==='signed').length + ' signé(s)';
-  document.getElementById('kpi-nego').textContent = DB.negociations.length;
-  document.getElementById('kpi-tasks').textContent = tasks;
-  document.getElementById('kpi-tasks-d').textContent = tasks > 0 ? 'action requise' : 'RAS ✓';
+// ── DASHBOARD ──
+function renderDashboard(){
+  const contratsActifs=DB.offres.filter(o=>o.statut==='en_cours').length;
+  const tasks=DB.taches.filter(t=>!t.done&&t.priorite==='urgent').length;
+  document.getElementById('kpi-total').textContent=DB.fn.length+DB.eafc.length;
+  document.getElementById('kpi-total-d').textContent=`${DB.fn.length} FN · ${DB.eafc.length} EA FC`;
+  document.getElementById('kpi-contrats').textContent=contratsActifs;
+  document.getElementById('kpi-contrats-d').textContent=DB.offres.filter(o=>o.statut==='termine').length+' terminé(s)';
+  document.getElementById('kpi-nego').textContent=DB.negociations.length;
+  document.getElementById('kpi-tasks').textContent=tasks;
+  document.getElementById('kpi-tasks-d').textContent=tasks>0?'action requise':'RAS ✓';
 
-  const allP = [...DB.fn.map(p=>({...p,game:'fn'})), ...DB.eafc.map(p=>({...p,game:'eafc'}))];
-  document.getElementById('dash-top').innerHTML = allP.map((p,i) => `
+  const{total,details}=calcTotalSalaires();
+  document.getElementById('kpi-salaires-total').textContent=fmtEuro(total)||'0 €';
+  document.getElementById('kpi-salaires-detail').textContent=details.join(' · ')||'Aucun contrat enregistré';
+
+  // Top roster trié par FT rank
+  const fnSorted=[...DB.fn].sort((a,b)=>(a.ft_rank||9999)-(b.ft_rank||9999));
+  const allP=[...fnSorted.map(p=>({...p,game:'fn'})),...DB.eafc.map(p=>({...p,game:'eafc'}))];
+  document.getElementById('dash-top').innerHTML=allP.map((p,i)=>`
     <div class="flex fca g10" style="padding:9px 0;border-bottom:1px solid var(--border);">
       ${rkCircle(i)}${av(p,30,p.game)}
       <div style="flex:1;"><div style="font-family:'Syne',sans-serif;font-weight:700;font-size:13px;">${p.pseudo}</div><div style="font-size:10.5px;color:var(--muted);">${p.twitter||''}</div></div>
       <span class="tag ${p.game==='fn'?'t-fn':'t-eafc'}">${p.game==='fn'?'⚡':'⚽'}</span>
       ${formeTag(p.forme)}
-    </div>`).join('') || '<div style="color:var(--muted);padding:12px 0;">Aucun joueur</div>';
+    </div>`).join('')||'<div style="color:var(--muted);padding:12px 0;">Aucun joueur</div>';
 
-  const urgentes = DB.taches.filter(t=>!t.done&&t.priorite==='urgent').slice(0,4);
-  document.getElementById('dash-tasks').innerHTML = urgentes.map(t => {
-    const pval = t.fn_player_id ? `fn__${t.fn_player_id}` : t.eafc_player_id ? `eafc__${t.eafc_player_id}` : '';
-    const {name} = resolvePlayer(pval);
-    return `<div class="task">
-      <div class="tcheck" onclick="toggleTask('${t.id}')"><span class="tcheck-ico">✓</span></div>
-      <div style="flex:1;"><div class="task-text">${t.description}</div><div class="task-meta">${name!=='—'?name+' • ':''}${fmtDate(t.date_limite)}</div></div>
-    </div>`;
-  }).join('') || '<div style="color:var(--muted);font-size:12.5px;padding:10px 0;">Aucune tâche urgente ✓</div>';
+  const urgentes=DB.taches.filter(t=>!t.done&&t.priorite==='urgent').slice(0,4);
+  document.getElementById('dash-tasks').innerHTML=urgentes.map(t=>{
+    const pval=t.fn_player_id?`fn__${t.fn_player_id}`:t.eafc_player_id?`eafc__${t.eafc_player_id}`:'';
+    const{name}=resolvePlayer(pval);
+    return `<div class="task"><div class="tcheck" onclick="toggleTask('${t.id}')"><span class="tcheck-ico">✓</span></div><div style="flex:1;"><div class="task-text">${t.description}</div><div class="task-meta">${name!=='—'?name+' • ':''}${fmtDate(t.date_limite)}</div></div></div>`;
+  }).join('')||'<div style="color:var(--muted);font-size:12.5px;padding:10px 0;">Aucune tâche urgente ✓</div>';
 
-  document.getElementById('dash-offres').innerHTML = DB.offres.slice(0,5).map(o => {
-    const pval = o.fn_player_id ? `fn__${o.fn_player_id}` : `eafc__${o.eafc_player_id}`;
-    const {name} = resolvePlayer(pval);
-    return `<div class="flex fca g10" style="padding:8px 0;border-bottom:1px solid var(--border);">
-      <div style="flex:1;"><div style="font-family:'Syne',sans-serif;font-weight:600;font-size:12.5px;">${name} — ${o.organisation}</div><div style="font-size:11px;color:var(--muted);">${o.montant||''}</div></div>
-      ${statutTag(o.statut)}
-    </div>`;
-  }).join('') || '<div class="empty"><div class="empty-ico">◇</div>Aucune offre</div>';
+  document.getElementById('dash-contrats').innerHTML=DB.offres.slice(0,5).map(o=>{
+    const pval=o.fn_player_id?`fn__${o.fn_player_id}`:`eafc__${o.eafc_player_id}`;
+    const{name}=resolvePlayer(pval);
+    const montant=parseFloat(o.montant)||0;
+    const duree=parseInt(o.duree_mois)||0;
+    return `<div class="flex fca g10" style="padding:8px 0;border-bottom:1px solid var(--border);"><div style="flex:1;"><div style="font-family:'Syne',sans-serif;font-weight:600;font-size:12.5px;">${name} — ${o.organisation||''}</div><div style="font-size:11px;color:var(--muted);">${fmtEuro(montant)}/mois × ${duree} mois = ${fmtEuro(montant*duree)}</div></div>${statutContratTag(o.statut)}</div>`;
+  }).join('')||'<div class="empty"><div class="empty-ico">◇</div>Aucun contrat</div>';
 
-  document.getElementById('dash-nego').innerHTML = DB.negociations.slice(0,3).map(n => {
-    const pval = n.fn_player_id ? `fn__${n.fn_player_id}` : `eafc__${n.eafc_player_id}`;
-    const {name} = resolvePlayer(pval);
-    return `<div style="padding:8px 0;border-bottom:1px solid var(--border);">
-      <div class="flex fca g10 mb8"><span style="font-family:'Syne',sans-serif;font-weight:600;font-size:12.5px;">${name} ↔ ${n.organisation}</span>${prioTag(n.priorite)}</div>
-      ${negoBar(n.etape)}
-    </div>`;
-  }).join('') || '<div class="empty"><div class="empty-ico">⟳</div>Aucune négociation</div>';
+  document.getElementById('dash-nego').innerHTML=DB.negociations.slice(0,3).map(n=>{
+    const pval=n.fn_player_id?`fn__${n.fn_player_id}`:`eafc__${n.eafc_player_id}`;
+    const{name}=resolvePlayer(pval);
+    return `<div style="padding:8px 0;border-bottom:1px solid var(--border);"><div class="flex fca g10 mb8"><span style="font-family:'Syne',sans-serif;font-weight:600;font-size:12.5px;">${name} ↔ ${n.organisation}</span>${prioTag(n.priorite)}</div>${negoBar(n.etape)}</div>`;
+  }).join('')||'<div class="empty"><div class="empty-ico">⟳</div>Aucune négociation</div>';
 }
 
-// ═══════════════════════════════════════
-//  FN JOUEURS
-// ═══════════════════════════════════════
-function renderFNJoueurs() {
-  document.getElementById('fn-count').textContent = DB.fn.length + ' joueur(s)';
-  document.getElementById('fn-grid').innerHTML = DB.fn.map(p => `
+// ── FN JOUEURS ──
+function renderFNJoueurs(){
+  // Trié par FT rank
+  const sorted=[...DB.fn].sort((a,b)=>(a.ft_rank||9999)-(b.ft_rank||9999));
+  document.getElementById('fn-count').textContent=sorted.length+' joueur(s) — trié par Power Ranking';
+  document.getElementById('fn-grid').innerHTML=sorted.map((p,i)=>`
     <div class="pcard">
-      <div class="flex fca g10 mb12">${av(p,42,'fn')}
-        <div style="flex:1;"><div class="pcard-name">${p.pseudo}</div>
-        <div class="pcard-handle"><a href="https://twitter.com/${(p.twitter||'').replace('@','')}" target="_blank" style="color:var(--fn);text-decoration:none;">${p.twitter||''}</a></div></div>
+      <div class="flex fca g10 mb12">
+        ${rkCircle(i)}
+        ${av(p,38,'fn')}
+        <div style="flex:1;"><div class="pcard-name">${p.pseudo}</div><div class="pcard-handle"><a href="https://twitter.com/${(p.twitter||'').replace('@','')}" target="_blank" style="color:var(--fn);text-decoration:none;">${p.twitter||''}</a></div></div>
         ${formeTag(p.forme)}
       </div>
       <div class="pcard-stats">
@@ -738,21 +704,34 @@ function renderFNJoueurs() {
         <div class="ps"><div class="ps-label">GP Rank</div><div class="ps-val" style="color:var(--gold);">${p.gp_rank?'#'+p.gp_rank:'—'}</div></div>
         <div class="ps"><div class="ps-label">GP Pts</div><div class="ps-val">${p.gp_pts||'—'}</div></div>
       </div>
+      <div class="pcard-nav">
+        <span class="pnav-btn pnav-fn" onclick="goToPlayerSection('fn-ranking','${p.id}')">▲ Ranking</span>
+        <span class="pnav-btn pnav-fn" onclick="goToPlayerSection('fn-stats','${p.id}')">◎ Stats</span>
+        <span class="pnav-btn pnav-fn" onclick="goToPlayerSection('reseaux','${p.id}')">↑ Réseaux</span>
+      </div>
       ${p.notes?`<div style="font-size:11.5px;color:var(--muted);margin-top:10px;padding-top:10px;border-top:1px solid var(--border);">${p.notes}</div>`:''}
       <div class="flex g6" style="margin-top:12px;">
         <button class="btn btn-ghost btn-xs" style="flex:1;justify-content:center;" onclick="editFNPlayer('${p.id}')">✎ Modifier</button>
         <button class="btn btn-danger btn-xs" onclick="deleteFNPlayer('${p.id}')">✕</button>
       </div>
-    </div>`).join('') || '<div class="empty" style="grid-column:1/-1"><div class="empty-ico">◉</div>Aucun joueur FN</div>';
+    </div>`).join('')||'<div class="empty" style="grid-column:1/-1"><div class="empty-ico">◉</div>Aucun joueur FN</div>';
 }
 
-// ═══════════════════════════════════════
-//  FN RANKING
-// ═══════════════════════════════════════
-function renderFNRanking() {
-  const sorted = [...DB.fn].sort((a,b)=>(a.ft_rank||9999)-(b.ft_rank||9999));
-  document.getElementById('ranking-tbody').innerHTML = sorted.map((p,i) => `
-    <tr>
+function goToPlayerSection(section, playerId){
+  const navItem = document.querySelector(`.nav-item[onclick*="'${section}'"]`);
+  go(section, navItem);
+  // Highlight le joueur après rendu
+  setTimeout(()=>{
+    const el = document.getElementById(`player-highlight-${playerId}`);
+    if(el){el.style.border='1px solid var(--fn)';setTimeout(()=>el.style.border='',2000);}
+  },300);
+}
+
+// ── FN RANKING ──
+function renderFNRanking(){
+  const sorted=[...DB.fn].sort((a,b)=>(a.ft_rank||9999)-(b.ft_rank||9999));
+  document.getElementById('ranking-tbody').innerHTML=sorted.map((p,i)=>`
+    <tr id="player-highlight-${p.id}">
       <td>${rkCircle(i)}</td>
       <td><div class="flex fca g10">${av(p,30,'fn')}<div><div style="font-family:'Syne',sans-serif;font-weight:700;">${p.pseudo}</div><div style="font-size:10.5px;color:var(--muted);">${p.twitter||''}</div></div></div></td>
       <td><span style="font-family:'Syne',sans-serif;font-weight:800;font-size:16px;color:var(--fn);">${p.ft_rank?'#'+p.ft_rank:'—'}</span></td>
@@ -763,16 +742,12 @@ function renderFNRanking() {
     </tr>`).join('');
 }
 
-// ═══════════════════════════════════════
-//  FN STATS
-// ═══════════════════════════════════════
-function renderFNStats() {
-  document.getElementById('fn-stats-grid').innerHTML = DB.fn.map(p => `
-    <div class="card">
-      <div class="flex fca g10 mb16">${av(p,36,'fn')}
-        <div style="flex:1;"><div style="font-family:'Syne',sans-serif;font-weight:700;font-size:14px;">${p.pseudo}</div><div style="font-size:11px;color:var(--muted);">${p.twitter||''}</div></div>
-        ${formeTag(p.forme)}
-      </div>
+// ── FN STATS ──
+function renderFNStats(){
+  const sorted=[...DB.fn].sort((a,b)=>(a.ft_rank||9999)-(b.ft_rank||9999));
+  document.getElementById('fn-stats-grid').innerHTML=sorted.map(p=>`
+    <div class="card" id="player-highlight-${p.id}">
+      <div class="flex fca g10 mb16">${av(p,36,'fn')}<div style="flex:1;"><div style="font-family:'Syne',sans-serif;font-weight:700;font-size:14px;">${p.pseudo}</div><div style="font-size:11px;color:var(--muted);">${p.twitter||''}</div></div>${formeTag(p.forme)}</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
         <div style="background:var(--s2);border-radius:var(--rs);padding:10px;text-align:center;"><div style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--fn);">${p.ft_rank?'#'+p.ft_rank:'—'}</div><div style="font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;">FT Rank</div></div>
         <div style="background:var(--s2);border-radius:var(--rs);padding:10px;text-align:center;"><div style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;">${p.ft_pts||'—'}</div><div style="font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;">FT Points</div></div>
@@ -784,42 +759,35 @@ function renderFNStats() {
     </div>`).join('');
 }
 
-// ═══════════════════════════════════════
-//  EAFC JOUEURS
-// ═══════════════════════════════════════
-function renderEAFCJoueurs() {
-  document.getElementById('eafc-count').textContent = DB.eafc.length + ' joueur(s)';
-  document.getElementById('eafc-grid').innerHTML = DB.eafc.map(p => `
+// ── EAFC JOUEURS ──
+function renderEAFCJoueurs(){
+  document.getElementById('eafc-count').textContent=DB.eafc.length+' joueur(s)';
+  document.getElementById('eafc-grid').innerHTML=DB.eafc.map(p=>`
     <div class="pcard">
-      <div class="flex fca g10 mb12">${av(p,42,'eafc')}
-        <div style="flex:1;"><div class="pcard-name">${p.pseudo}</div>
-        <div class="pcard-handle"><a href="https://twitter.com/${(p.twitter||'').replace('@','')}" target="_blank" style="color:var(--eafc);text-decoration:none;">${p.twitter||''}</a></div></div>
-        ${formeTag(p.forme)}
-      </div>
+      <div class="flex fca g10 mb12">${av(p,42,'eafc')}<div style="flex:1;"><div class="pcard-name">${p.pseudo}</div><div class="pcard-handle"><a href="https://twitter.com/${(p.twitter||'').replace('@','')}" target="_blank" style="color:var(--eafc);text-decoration:none;">${p.twitter||''}</a></div></div>${formeTag(p.forme)}</div>
       <div class="pcard-stats">
         <div class="ps"><div class="ps-label">Division</div><div class="ps-val" style="font-size:13px;color:var(--eafc);">${p.division||'—'}</div></div>
         <div class="ps"><div class="ps-label">Rang</div><div class="ps-val" style="font-size:13px;">${p.rang||'—'}</div></div>
         <div class="ps"><div class="ps-label">V/D</div><div class="ps-val" style="font-size:15px;">${p.wl_ratio||'—'}</div></div>
         <div class="ps"><div class="ps-label">Buts/P</div><div class="ps-val" style="font-size:15px;">${p.buts_partie||'—'}</div></div>
       </div>
+      <div class="pcard-nav">
+        <span class="pnav-btn pnav-eafc" onclick="goToPlayerSection('eafc-stats','${p.id}')">◎ Stats</span>
+        <span class="pnav-btn pnav-eafc" onclick="goToPlayerSection('reseaux','${p.id}')">↑ Réseaux</span>
+      </div>
       ${p.notes?`<div style="font-size:11.5px;color:var(--muted);margin-top:10px;padding-top:10px;border-top:1px solid var(--border);">${p.notes}</div>`:''}
       <div class="flex g6" style="margin-top:12px;">
         <button class="btn btn-ghost btn-xs" style="flex:1;justify-content:center;" onclick="editEAFCPlayer('${p.id}')">✎ Modifier</button>
         <button class="btn btn-danger btn-xs" onclick="deleteEAFCPlayer('${p.id}')">✕</button>
       </div>
-    </div>`).join('') || '<div class="empty" style="grid-column:1/-1"><div class="empty-ico">◉</div>Aucun joueur EA FC</div>';
+    </div>`).join('')||'<div class="empty" style="grid-column:1/-1"><div class="empty-ico">◉</div>Aucun joueur EA FC</div>';
 }
 
-// ═══════════════════════════════════════
-//  EAFC STATS
-// ═══════════════════════════════════════
-function renderEAFCStats() {
-  document.getElementById('eafc-stats-grid').innerHTML = DB.eafc.map(p => `
-    <div class="card">
-      <div class="flex fca g10 mb16">${av(p,36,'eafc')}
-        <div style="flex:1;"><div style="font-family:'Syne',sans-serif;font-weight:700;font-size:14px;">${p.pseudo}</div><div style="font-size:11px;color:var(--muted);">${p.twitter||''}</div></div>
-        ${formeTag(p.forme)}
-      </div>
+// ── EAFC STATS ──
+function renderEAFCStats(){
+  document.getElementById('eafc-stats-grid').innerHTML=DB.eafc.map(p=>`
+    <div class="card" id="player-highlight-${p.id}">
+      <div class="flex fca g10 mb16">${av(p,36,'eafc')}<div style="flex:1;"><div style="font-family:'Syne',sans-serif;font-weight:700;font-size:14px;">${p.pseudo}</div><div style="font-size:11px;color:var(--muted);">${p.twitter||''}</div></div>${formeTag(p.forme)}</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
         <div style="background:var(--s2);border-radius:var(--rs);padding:10px;text-align:center;"><div style="font-family:'Syne',sans-serif;font-weight:800;font-size:16px;color:var(--eafc);">${p.division||'—'}</div><div style="font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;">Division</div></div>
         <div style="background:var(--s2);border-radius:var(--rs);padding:10px;text-align:center;"><div style="font-family:'Syne',sans-serif;font-weight:800;font-size:16px;">${p.rang||'—'}</div><div style="font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;">Rang</div></div>
@@ -831,35 +799,47 @@ function renderEAFCStats() {
     </div>`).join('');
 }
 
-// ═══════════════════════════════════════
-//  OFFRES
-// ═══════════════════════════════════════
-function renderOffres() {
-  const row = o => {
-    const pval = o.fn_player_id ? `fn__${o.fn_player_id}` : `eafc__${o.eafc_player_id}`;
-    const {name} = resolvePlayer(pval);
-    return `<tr><td style="font-family:'Syne',sans-serif;font-weight:700;">${name}</td><td><span class="tag t-muted">${o.type_offre}</span></td><td>${o.organisation}</td><td style="color:var(--gold);font-family:'Syne',sans-serif;font-weight:700;">${o.montant||'—'}</td><td>${statutTag(o.statut)}</td><td style="color:var(--muted);">${fmtDate(o.date_echeance)}</td><td><button class="btn btn-danger btn-xs" onclick="deleteOffre('${o.id}')">✕</button></td></tr>`;
+// ── CONTRATS ──
+function renderContrats(){
+  const row=o=>{
+    const pval=o.fn_player_id?`fn__${o.fn_player_id}`:`eafc__${o.eafc_player_id}`;
+    const{name}=resolvePlayer(pval);
+    const montant=parseFloat(o.montant)||0;
+    const duree=parseInt(o.duree_mois)||0;
+    const total=montant*duree;
+    return `<tr>
+      <td style="font-family:'Syne',sans-serif;font-weight:700;">${name}</td>
+      <td>${o.organisation||'—'}</td>
+      <td style="color:var(--gold);font-weight:600;">${fmtEuro(montant)}</td>
+      <td>${duree?duree+' mois':'—'}</td>
+      <td style="color:var(--green);font-family:'Syne',sans-serif;font-weight:700;">${total?fmtEuro(total):'—'}</td>
+      <td>${statutContratTag(o.statut)}</td>
+      <td style="color:var(--muted);">${fmtDate(o.date_debut)}</td>
+      <td style="color:var(--muted);">${fmtDate(o.date_fin)}</td>
+      <td>
+        <div class="flex g6">
+          <button class="btn btn-ghost btn-xs" onclick="editContrat('${o.id}')">✎</button>
+          <button class="btn btn-danger btn-xs" onclick="deleteContrat('${o.id}')">✕</button>
+        </div>
+      </td>
+    </tr>`;
   };
-  const empty = `<tr><td colspan="7" style="text-align:center;color:var(--muted);padding:24px;">Aucune offre</td></tr>`;
-  const fn = DB.offres.filter(o=>o.fn_player_id);
-  const ea = DB.offres.filter(o=>o.eafc_player_id);
-  document.getElementById('offres-fn-tbody').innerHTML = fn.length ? fn.map(row).join('') : empty;
-  document.getElementById('offres-eafc-tbody').innerHTML = ea.length ? ea.map(row).join('') : empty;
-  const sel = document.getElementById('o-joueur');
-  if(sel) sel.innerHTML = playerOptions();
+  const empty=`<tr><td colspan="9" style="text-align:center;color:var(--muted);padding:24px;">Aucun contrat</td></tr>`;
+  const fn=DB.offres.filter(o=>o.fn_player_id);
+  const ea=DB.offres.filter(o=>o.eafc_player_id);
+  document.getElementById('contrats-fn-tbody').innerHTML=fn.length?fn.map(row).join(''):empty;
+  document.getElementById('contrats-eafc-tbody').innerHTML=ea.length?ea.map(row).join(''):empty;
+  const sel=document.getElementById('c2-joueur');
+  if(sel)sel.innerHTML=playerOptions();
 }
 
-// ═══════════════════════════════════════
-//  NEGO
-// ═══════════════════════════════════════
-function renderNego() {
-  const card = n => {
-    const pval = n.fn_player_id ? `fn__${n.fn_player_id}` : `eafc__${n.eafc_player_id}`;
-    const {name, game} = resolvePlayer(pval);
-    const pList = game==='fn' ? DB.fn : DB.eafc;
-    const p = pList?.find(x => x.id === (n.fn_player_id||n.eafc_player_id));
+// ── NEGO ──
+function renderNego(){
+  const card=n=>{
+    const pval=n.fn_player_id?`fn__${n.fn_player_id}`:`eafc__${n.eafc_player_id}`;
+    const{name,game,player}=resolvePlayer(pval);
     return `<div class="card">
-      <div class="flex fca g10 mb12">${p?av(p,34,game):''}
+      <div class="flex fca g10 mb12">${player?av(player,34,game):''}
         <div style="flex:1;"><div style="font-family:'Syne',sans-serif;font-weight:700;">${name}</div><div style="font-size:11.5px;color:var(--muted);">${n.organisation}</div></div>
         ${prioTag(n.priorite)}
       </div>
@@ -874,20 +854,18 @@ function renderNego() {
       </div>
     </div>`;
   };
-  const fn = DB.negociations.filter(n=>n.fn_player_id);
-  const ea = DB.negociations.filter(n=>n.eafc_player_id);
-  document.getElementById('nego-fn-grid').innerHTML = fn.length ? fn.map(card).join('') : '<div class="empty" style="grid-column:1/-1"><div class="empty-ico">⟳</div>Aucune négociation FN</div>';
-  document.getElementById('nego-eafc-grid').innerHTML = ea.length ? ea.map(card).join('') : '<div class="empty" style="grid-column:1/-1"><div class="empty-ico">⟳</div>Aucune négociation EA FC</div>';
-  const sel = document.getElementById('n-joueur');
-  if(sel) sel.innerHTML = playerOptions();
+  const fn=DB.negociations.filter(n=>n.fn_player_id);
+  const ea=DB.negociations.filter(n=>n.eafc_player_id);
+  document.getElementById('nego-fn-grid').innerHTML=fn.length?fn.map(card).join(''):'<div class="empty" style="grid-column:1/-1"><div class="empty-ico">⟳</div>Aucune négociation FN</div>';
+  document.getElementById('nego-eafc-grid').innerHTML=ea.length?ea.map(card).join(''):'<div class="empty" style="grid-column:1/-1"><div class="empty-ico">⟳</div>Aucune négociation EA FC</div>';
+  const sel=document.getElementById('n-joueur');
+  if(sel)sel.innerHTML=playerOptions();
 }
 
-// ═══════════════════════════════════════
-//  CONTACTS
-// ═══════════════════════════════════════
-function renderContacts() {
-  const q = (document.getElementById('csearch')?.value||'').toLowerCase();
-  const ccard = c => `
+// ── CONTACTS ──
+function renderContacts(){
+  const q=(document.getElementById('csearch')?.value||'').toLowerCase();
+  const ccard=c=>`
     <div class="ccard">
       <div class="cav" style="color:var(--${c.jeux==='fn'?'fn':c.jeux==='eafc'?'eafc':'gold'});">${c.prenom[0]}${c.nom[0]}</div>
       <div style="flex:1;">
@@ -900,370 +878,277 @@ function renderContacts() {
       </div>
       <button class="btn btn-danger btn-xs" onclick="deleteContact('${c.id}')">✕</button>
     </div>`;
-
-  const filter = (jeux) => DB.contacts.filter(c => {
-    if(c.jeux !== jeux) return false;
-    if(q && !(`${c.prenom} ${c.nom} ${c.organisation} ${c.role}`.toLowerCase().includes(q))) return false;
-    return true;
-  });
-
-  const fn = filter('fn'), ea = filter('eafc'), both = DB.contacts.filter(c => c.jeux==='both' && (!q || `${c.prenom} ${c.nom} ${c.organisation}`.toLowerCase().includes(q)));
-  document.getElementById('contacts-fn-grid').innerHTML = fn.length ? fn.map(ccard).join('') : '<div class="empty" style="grid-column:1/-1"><div class="empty-ico">◑</div>Aucun contact FN</div>';
-  document.getElementById('contacts-eafc-grid').innerHTML = ea.length ? ea.map(ccard).join('') : '<div class="empty" style="grid-column:1/-1"><div class="empty-ico">◑</div>Aucun contact EA FC</div>';
-  document.getElementById('contacts-both-grid').innerHTML = both.length ? both.map(ccard).join('') : '<div class="empty" style="grid-column:1/-1"><div class="empty-ico">◑</div>Aucun contact général</div>';
+  const filter=(jeux)=>DB.contacts.filter(c=>c.jeux===jeux&&(!q||`${c.prenom} ${c.nom} ${c.organisation} ${c.role}`.toLowerCase().includes(q)));
+  const fn=filter('fn'),ea=filter('eafc'),both=DB.contacts.filter(c=>c.jeux==='both'&&(!q||`${c.prenom} ${c.nom} ${c.organisation}`.toLowerCase().includes(q)));
+  document.getElementById('contacts-fn-grid').innerHTML=fn.length?fn.map(ccard).join(''):'<div class="empty" style="grid-column:1/-1"><div class="empty-ico">◑</div>Aucun contact FN</div>';
+  document.getElementById('contacts-eafc-grid').innerHTML=ea.length?ea.map(ccard).join(''):'<div class="empty" style="grid-column:1/-1"><div class="empty-ico">◑</div>Aucun contact EA FC</div>';
+  document.getElementById('contacts-both-grid').innerHTML=both.length?both.map(ccard).join(''):'<div class="empty" style="grid-column:1/-1"><div class="empty-ico">◑</div>Aucun contact général</div>';
 }
 
-// ═══════════════════════════════════════
-//  TÂCHES
-// ═══════════════════════════════════════
-function renderTaches() {
-  const sel = document.getElementById('t-joueur');
-  if(sel) sel.innerHTML = playerOptions(true);
-  const html = list => list.length ? list.map(t => {
-    const pval = t.fn_player_id ? `fn__${t.fn_player_id}` : t.eafc_player_id ? `eafc__${t.eafc_player_id}` : '';
-    const {name} = resolvePlayer(pval);
-    return `<div class="task">
-      <div class="tcheck ${t.done?'done':''}" onclick="toggleTask('${t.id}')"><span class="tcheck-ico">✓</span></div>
-      <div style="flex:1;"><div class="task-text ${t.done?'done':''}">${t.description}</div><div class="task-meta">${name!=='—'?name+' • ':''}${fmtDate(t.date_limite)}</div></div>
-      <button class="btn btn-danger btn-xs" onclick="deleteTask('${t.id}')">✕</button>
-    </div>`;
-  }).join('') : '<div style="color:var(--muted);font-size:12.5px;padding:8px 0;">Aucune tâche ici</div>';
-
-  document.getElementById('t-urgent').innerHTML = html(DB.taches.filter(t=>t.priorite==='urgent'&&!t.done));
-  document.getElementById('t-week').innerHTML = html(DB.taches.filter(t=>t.priorite==='week'&&!t.done));
-  document.getElementById('t-soon').innerHTML = html(DB.taches.filter(t=>t.priorite==='soon'&&!t.done));
-  document.getElementById('t-done').innerHTML = html(DB.taches.filter(t=>t.done));
+// ── TÂCHES ──
+function renderTaches(){
+  const sel=document.getElementById('t-joueur');
+  if(sel)sel.innerHTML=playerOptions(true);
+  const html=list=>list.length?list.map(t=>{
+    const pval=t.fn_player_id?`fn__${t.fn_player_id}`:t.eafc_player_id?`eafc__${t.eafc_player_id}`:'';
+    const{name}=resolvePlayer(pval);
+    return `<div class="task"><div class="tcheck ${t.done?'done':''}" onclick="toggleTask('${t.id}')"><span class="tcheck-ico">✓</span></div><div style="flex:1;"><div class="task-text ${t.done?'done':''}">${t.description}</div><div class="task-meta">${name!=='—'?name+' • ':''}${fmtDate(t.date_limite)}</div></div><button class="btn btn-danger btn-xs" onclick="deleteTask('${t.id}')">✕</button></div>`;
+  }).join(''):'<div style="color:var(--muted);font-size:12.5px;padding:8px 0;">Aucune tâche ici</div>';
+  document.getElementById('t-urgent').innerHTML=html(DB.taches.filter(t=>t.priorite==='urgent'&&!t.done));
+  document.getElementById('t-week').innerHTML=html(DB.taches.filter(t=>t.priorite==='week'&&!t.done));
+  document.getElementById('t-soon').innerHTML=html(DB.taches.filter(t=>t.priorite==='soon'&&!t.done));
+  document.getElementById('t-done').innerHTML=html(DB.taches.filter(t=>t.done));
 }
 
-// ═══════════════════════════════════════
-//  RÉSEAUX
-// ═══════════════════════════════════════
-function renderReseaux() {
-  const card = (p, game) => `
-    <div class="card">
-      <div class="flex fca g10 mb14">${av(p,36,game)}
-        <div><div style="font-family:'Syne',sans-serif;font-weight:700;">${p.pseudo}</div><div style="font-size:11px;color:var(--muted);">${p.twitter||''}</div></div>
-      </div>
-      <div class="flex fca g10 mb8">
-        <div style="width:24px;height:24px;border-radius:5px;background:rgba(29,161,242,0.12);color:#1da1f2;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;">𝕏</div>
-        <div style="flex:1;font-size:12.5px;">Twitter / X</div>
-        <div style="font-family:'Syne',sans-serif;font-weight:700;">${fmtNum(p.followers||0)}</div>
-      </div>
+// ── RÉSEAUX ──
+function renderReseaux(){
+  const card=(p,game)=>`
+    <div class="card" id="player-highlight-${p.id}">
+      <div class="flex fca g10 mb14">${av(p,36,game)}<div><div style="font-family:'Syne',sans-serif;font-weight:700;">${p.pseudo}</div><div style="font-size:11px;color:var(--muted);">${p.twitter||''}</div></div></div>
+      <div class="flex fca g10 mb8"><div style="width:24px;height:24px;border-radius:5px;background:rgba(29,161,242,0.12);color:#1da1f2;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;">𝕏</div><div style="flex:1;font-size:12.5px;">Twitter / X</div><div style="font-family:'Syne',sans-serif;font-weight:700;">${fmtNum(p.followers||0)}</div></div>
       <button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center;margin-top:8px;" onclick="updateFollowers('${game}','${p.id}')">✎ Mettre à jour</button>
     </div>`;
-  document.getElementById('rsn-fn').innerHTML = DB.fn.map(p=>card(p,'fn')).join('') || '<div class="empty" style="grid-column:1/-1">Aucun joueur FN</div>';
-  document.getElementById('rsn-eafc').innerHTML = DB.eafc.map(p=>card(p,'eafc')).join('') || '<div class="empty" style="grid-column:1/-1">Aucun joueur EA FC</div>';
+  document.getElementById('rsn-fn').innerHTML=DB.fn.map(p=>card(p,'fn')).join('')||'<div class="empty" style="grid-column:1/-1">Aucun joueur FN</div>';
+  document.getElementById('rsn-eafc').innerHTML=DB.eafc.map(p=>card(p,'eafc')).join('')||'<div class="empty" style="grid-column:1/-1">Aucun joueur EA FC</div>';
 }
 
-// ═══════════════════════════════════════
-//  CRUD — FN PLAYERS
-// ═══════════════════════════════════════
-async function saveFNPlayer() {
-  const pseudo = document.getElementById('fn-pseudo').value.trim();
-  if(!pseudo) return alert('Pseudo requis');
-  const editId = document.getElementById('fn-edit-id').value;
-  const body = {
-    pseudo, twitter: document.getElementById('fn-twitter').value.trim(),
-    color: document.getElementById('fn-color').value,
-    ft_rank: parseInt(document.getElementById('fn-ft-rank').value)||null,
-    ft_pts: parseInt(document.getElementById('fn-ft-pts').value)||null,
-    gp_rank: parseInt(document.getElementById('fn-gp-rank').value)||null,
-    gp_pts: parseInt(document.getElementById('fn-gp-pts').value)||null,
-    followers: parseInt(document.getElementById('fn-followers').value)||0,
-    forme: document.getElementById('fn-forme').value,
-    notes: document.getElementById('fn-notes').value
-  };
-  if(editId) { await patch('fn_players', editId, body); toast('Joueur modifié ✓'); }
-  else { await post('fn_players', body); toast('Joueur ajouté ✓'); }
+// ── CRUD FN ──
+async function saveFNPlayer(){
+  const pseudo=document.getElementById('fn-pseudo').value.trim();
+  if(!pseudo)return alert('Pseudo requis');
+  const editId=document.getElementById('fn-edit-id').value;
+  const body={pseudo,twitter:document.getElementById('fn-twitter').value.trim(),color:document.getElementById('fn-color').value,ft_rank:parseInt(document.getElementById('fn-ft-rank').value)||null,ft_pts:parseInt(document.getElementById('fn-ft-pts').value)||null,gp_rank:parseInt(document.getElementById('fn-gp-rank').value)||null,gp_pts:parseInt(document.getElementById('fn-gp-pts').value)||null,followers:parseInt(document.getElementById('fn-followers').value)||0,forme:document.getElementById('fn-forme').value,notes:document.getElementById('fn-notes').value};
+  if(editId){await patch('fn_players',editId,body);toast('Joueur modifié ✓');}
+  else{await post('fn_players',body);toast('Joueur ajouté ✓');}
   closeModal();
-  DB.fn = await get('fn_players', '?order=ft_rank.asc.nullslast');
+  DB.fn=await get('fn_players','?order=ft_rank.asc.nullslast');
   renderFNJoueurs();
 }
 
-function editFNPlayer(id) {
-  const p = DB.fn.find(x=>x.id===id);
-  if(!p) return;
-  document.getElementById('fn-edit-id').value = id;
-  document.getElementById('fn-pseudo').value = p.pseudo;
-  document.getElementById('fn-twitter').value = p.twitter||'';
-  document.getElementById('fn-color').value = p.color||'av-fn';
-  document.getElementById('fn-ft-rank').value = p.ft_rank||'';
-  document.getElementById('fn-ft-pts').value = p.ft_pts||'';
-  document.getElementById('fn-gp-rank').value = p.gp_rank||'';
-  document.getElementById('fn-gp-pts').value = p.gp_pts||'';
-  document.getElementById('fn-followers').value = p.followers||'';
-  document.getElementById('fn-forme').value = p.forme;
-  document.getElementById('fn-notes').value = p.notes||'';
+function editFNPlayer(id){
+  const p=DB.fn.find(x=>x.id===id);if(!p)return;
+  document.getElementById('fn-edit-id').value=id;
+  document.getElementById('fn-pseudo').value=p.pseudo;
+  document.getElementById('fn-twitter').value=p.twitter||'';
+  document.getElementById('fn-color').value=p.color||'av-fn';
+  document.getElementById('fn-ft-rank').value=p.ft_rank||'';
+  document.getElementById('fn-ft-pts').value=p.ft_pts||'';
+  document.getElementById('fn-gp-rank').value=p.gp_rank||'';
+  document.getElementById('fn-gp-pts').value=p.gp_pts||'';
+  document.getElementById('fn-followers').value=p.followers||'';
+  document.getElementById('fn-forme').value=p.forme;
+  document.getElementById('fn-notes').value=p.notes||'';
   openModal('addFN');
 }
 
-async function deleteFNPlayer(id) {
-  if(!confirm('Retirer ce joueur ?')) return;
-  await del('fn_players', id);
-  DB.fn = await get('fn_players', '?order=ft_rank.asc.nullslast');
-  toast('Joueur supprimé'); renderFNJoueurs();
+async function deleteFNPlayer(id){
+  if(!confirm('Retirer ce joueur ?'))return;
+  await del('fn_players',id);
+  DB.fn=await get('fn_players','?order=ft_rank.asc.nullslast');
+  toast('Joueur supprimé');renderFNJoueurs();
 }
 
-// ═══════════════════════════════════════
-//  CRUD — EAFC PLAYERS
-// ═══════════════════════════════════════
-async function saveEAFCPlayer() {
-  const pseudo = document.getElementById('eafc-pseudo').value.trim();
-  if(!pseudo) return alert('Pseudo requis');
-  const editId = document.getElementById('eafc-edit-id').value;
-  const body = {
-    pseudo, twitter: document.getElementById('eafc-twitter').value.trim(),
-    color: document.getElementById('eafc-color').value,
-    division: document.getElementById('eafc-div').value,
-    rang: document.getElementById('eafc-rank').value,
-    wl_ratio: document.getElementById('eafc-wl').value,
-    buts_partie: parseFloat(document.getElementById('eafc-goals').value)||null,
-    followers: parseInt(document.getElementById('eafc-followers').value)||0,
-    forme: document.getElementById('eafc-forme').value,
-    notes: document.getElementById('eafc-notes').value
-  };
-  if(editId) { await patch('eafc_players', editId, body); toast('Joueur modifié ✓'); }
-  else { await post('eafc_players', body); toast('Joueur ajouté ✓'); }
+// ── CRUD EAFC ──
+async function saveEAFCPlayer(){
+  const pseudo=document.getElementById('eafc-pseudo').value.trim();
+  if(!pseudo)return alert('Pseudo requis');
+  const editId=document.getElementById('eafc-edit-id').value;
+  const body={pseudo,twitter:document.getElementById('eafc-twitter').value.trim(),color:document.getElementById('eafc-color').value,division:document.getElementById('eafc-div').value,rang:document.getElementById('eafc-rank').value,wl_ratio:document.getElementById('eafc-wl').value,buts_partie:parseFloat(document.getElementById('eafc-goals').value)||null,followers:parseInt(document.getElementById('eafc-followers').value)||0,forme:document.getElementById('eafc-forme').value,notes:document.getElementById('eafc-notes').value};
+  if(editId){await patch('eafc_players',editId,body);toast('Joueur modifié ✓');}
+  else{await post('eafc_players',body);toast('Joueur ajouté ✓');}
   closeModal();
-  DB.eafc = await get('eafc_players', '?order=created_at.asc');
+  DB.eafc=await get('eafc_players','?order=created_at.asc');
   renderEAFCJoueurs();
 }
 
-function editEAFCPlayer(id) {
-  const p = DB.eafc.find(x=>x.id===id);
-  if(!p) return;
-  document.getElementById('eafc-edit-id').value = id;
-  document.getElementById('eafc-pseudo').value = p.pseudo;
-  document.getElementById('eafc-twitter').value = p.twitter||'';
-  document.getElementById('eafc-color').value = p.color||'av-eafc';
-  document.getElementById('eafc-div').value = p.division||'';
-  document.getElementById('eafc-rank').value = p.rang||'';
-  document.getElementById('eafc-wl').value = p.wl_ratio||'';
-  document.getElementById('eafc-goals').value = p.buts_partie||'';
-  document.getElementById('eafc-followers').value = p.followers||'';
-  document.getElementById('eafc-forme').value = p.forme;
-  document.getElementById('eafc-notes').value = p.notes||'';
+function editEAFCPlayer(id){
+  const p=DB.eafc.find(x=>x.id===id);if(!p)return;
+  document.getElementById('eafc-edit-id').value=id;
+  document.getElementById('eafc-pseudo').value=p.pseudo;
+  document.getElementById('eafc-twitter').value=p.twitter||'';
+  document.getElementById('eafc-color').value=p.color||'av-eafc';
+  document.getElementById('eafc-div').value=p.division||'';
+  document.getElementById('eafc-rank').value=p.rang||'';
+  document.getElementById('eafc-wl').value=p.wl_ratio||'';
+  document.getElementById('eafc-goals').value=p.buts_partie||'';
+  document.getElementById('eafc-followers').value=p.followers||'';
+  document.getElementById('eafc-forme').value=p.forme;
+  document.getElementById('eafc-notes').value=p.notes||'';
   openModal('addEAFC');
 }
 
-async function deleteEAFCPlayer(id) {
-  if(!confirm('Retirer ce joueur ?')) return;
-  await del('eafc_players', id);
-  DB.eafc = await get('eafc_players', '?order=created_at.asc');
-  toast('Joueur supprimé'); renderEAFCJoueurs();
+async function deleteEAFCPlayer(id){
+  if(!confirm('Retirer ce joueur ?'))return;
+  await del('eafc_players',id);
+  DB.eafc=await get('eafc_players','?order=created_at.asc');
+  toast('Joueur supprimé');renderEAFCJoueurs();
 }
 
-// ═══════════════════════════════════════
-//  RANKING UPDATE
-// ═══════════════════════════════════════
-async function saveRanking() {
-  const updates = DB.fn.map(p => patch('fn_players', p.id, {
-    ft_rank: parseInt(document.getElementById(`rk-ft-rank-${p.id}`)?.value)||null,
-    ft_pts: parseInt(document.getElementById(`rk-ft-pts-${p.id}`)?.value)||null,
-    gp_rank: parseInt(document.getElementById(`rk-gp-rank-${p.id}`)?.value)||null,
-    gp_pts: parseInt(document.getElementById(`rk-gp-pts-${p.id}`)?.value)||null,
-  }));
+// ── RANKING ──
+async function saveRanking(){
+  const updates=DB.fn.map(p=>patch('fn_players',p.id,{ft_rank:parseInt(document.getElementById(`rk-ft-rank-${p.id}`)?.value)||null,ft_pts:parseInt(document.getElementById(`rk-ft-pts-${p.id}`)?.value)||null,gp_rank:parseInt(document.getElementById(`rk-gp-rank-${p.id}`)?.value)||null,gp_pts:parseInt(document.getElementById(`rk-gp-pts-${p.id}`)?.value)||null}));
   await Promise.all(updates);
-  DB.fn = await get('fn_players', '?order=ft_rank.asc.nullslast');
-  toast('Ranking mis à jour ✓'); closeModal(); renderFNRanking();
+  DB.fn=await get('fn_players','?order=ft_rank.asc.nullslast');
+  toast('Ranking mis à jour ✓');closeModal();renderFNRanking();
 }
 
-async function saveFNStats() {
-  const updates = DB.fn.map(p => patch('fn_players', p.id, {
-    followers: parseInt(document.getElementById(`fs-flw-${p.id}`)?.value)||0,
-    forme: document.getElementById(`fs-forme-${p.id}`)?.value||'avg',
-    notes: document.getElementById(`fs-notes-${p.id}`)?.value||''
-  }));
+async function saveFNStats(){
+  const updates=DB.fn.map(p=>patch('fn_players',p.id,{followers:parseInt(document.getElementById(`fs-flw-${p.id}`)?.value)||0,forme:document.getElementById(`fs-forme-${p.id}`)?.value||'avg',notes:document.getElementById(`fs-notes-${p.id}`)?.value||''}));
   await Promise.all(updates);
-  DB.fn = await get('fn_players', '?order=ft_rank.asc.nullslast');
-  toast('Stats FN mises à jour ✓'); closeModal(); renderFNStats();
+  DB.fn=await get('fn_players','?order=ft_rank.asc.nullslast');
+  toast('Stats FN mises à jour ✓');closeModal();renderFNStats();
 }
 
-async function saveEAFCStats() {
-  const updates = DB.eafc.map(p => patch('eafc_players', p.id, {
-    division: document.getElementById(`es-div-${p.id}`)?.value||'',
-    rang: document.getElementById(`es-rank-${p.id}`)?.value||'',
-    wl_ratio: document.getElementById(`es-wl-${p.id}`)?.value||'',
-    buts_partie: parseFloat(document.getElementById(`es-goals-${p.id}`)?.value)||null,
-    followers: parseInt(document.getElementById(`es-flw-${p.id}`)?.value)||0,
-    forme: document.getElementById(`es-forme-${p.id}`)?.value||'avg',
-    notes: document.getElementById(`es-notes-${p.id}`)?.value||''
-  }));
+async function saveEAFCStats(){
+  const updates=DB.eafc.map(p=>patch('eafc_players',p.id,{division:document.getElementById(`es-div-${p.id}`)?.value||'',rang:document.getElementById(`es-rank-${p.id}`)?.value||'',wl_ratio:document.getElementById(`es-wl-${p.id}`)?.value||'',buts_partie:parseFloat(document.getElementById(`es-goals-${p.id}`)?.value)||null,followers:parseInt(document.getElementById(`es-flw-${p.id}`)?.value)||0,forme:document.getElementById(`es-forme-${p.id}`)?.value||'avg',notes:document.getElementById(`es-notes-${p.id}`)?.value||''}));
   await Promise.all(updates);
-  DB.eafc = await get('eafc_players', '?order=created_at.asc');
-  toast('Stats EA FC mises à jour ✓'); closeModal(); renderEAFCStats();
+  DB.eafc=await get('eafc_players','?order=created_at.asc');
+  toast('Stats EA FC mises à jour ✓');closeModal();renderEAFCStats();
 }
 
-// ═══════════════════════════════════════
-//  CRUD — OFFRES
-// ═══════════════════════════════════════
-async function addOffre() {
-  const org = document.getElementById('o-org').value.trim();
-  if(!org) return alert('Organisation requise');
-  const pval = document.getElementById('o-joueur').value;
-  const [game, id] = pval.split('__');
-  const body = {
-    type_offre: document.getElementById('o-type').value,
-    organisation: org,
-    montant: document.getElementById('o-montant').value,
-    statut: document.getElementById('o-statut').value,
-    date_echeance: document.getElementById('o-date').value || null,
-    notes: document.getElementById('o-notes').value,
-    fn_player_id: game==='fn' ? id : null,
-    eafc_player_id: game==='eafc' ? id : null
-  };
-  await post('offres', body);
-  DB.offres = await get('offres', '?order=created_at.desc');
-  toast('Offre enregistrée ✓'); closeModal(); renderOffres();
+// ── CRUD CONTRATS ──
+async function saveContrat(){
+  const org=document.getElementById('c2-org').value.trim();
+  if(!org)return alert('Organisation requise');
+  const editId=document.getElementById('contrat-edit-id').value;
+  const pval=document.getElementById('c2-joueur').value;
+  const[game,id]=pval.split('__');
+  const body={organisation:org,montant:document.getElementById('c2-montant').value,duree_mois:parseInt(document.getElementById('c2-duree').value)||null,date_debut:document.getElementById('c2-debut').value||null,date_fin:document.getElementById('c2-fin').value||null,statut:document.getElementById('c2-statut').value,notes:document.getElementById('c2-notes').value,type_offre:'Contrat équipe',fn_player_id:game==='fn'?id:null,eafc_player_id:game==='eafc'?id:null};
+  if(editId){await patch('offres',editId,body);toast('Contrat modifié ✓');}
+  else{await post('offres',body);toast('Contrat ajouté ✓');}
+  closeModal();
+  DB.offres=await get('offres','?order=created_at.desc');
+  renderContrats();
 }
 
-async function deleteOffre(id) {
-  if(!confirm('Supprimer cette offre ?')) return;
-  await del('offres', id);
-  DB.offres = await get('offres', '?order=created_at.desc');
-  toast('Offre supprimée'); renderOffres();
+function editContrat(id){
+  const o=DB.offres.find(x=>x.id===id);if(!o)return;
+  document.getElementById('contrat-edit-id').value=id;
+  document.getElementById('contrat-modal-title').textContent='Modifier le contrat';
+  const sel=document.getElementById('c2-joueur');
+  if(sel)sel.innerHTML=playerOptions();
+  document.getElementById('c2-org').value=o.organisation||'';
+  document.getElementById('c2-montant').value=o.montant||'';
+  document.getElementById('c2-duree').value=o.duree_mois||'';
+  document.getElementById('c2-debut').value=o.date_debut||'';
+  document.getElementById('c2-fin').value=o.date_fin||'';
+  document.getElementById('c2-statut').value=o.statut||'en_cours';
+  document.getElementById('c2-notes').value=o.notes||'';
+  const pval=o.fn_player_id?`fn__${o.fn_player_id}`:`eafc__${o.eafc_player_id}`;
+  if(sel)sel.value=pval;
+  openModal('addContrat');
 }
 
-// ═══════════════════════════════════════
-//  CRUD — NEGO
-// ═══════════════════════════════════════
-async function addNego() {
-  const org = document.getElementById('n-org').value.trim();
-  if(!org) return alert('Organisation requise');
-  const pval = document.getElementById('n-joueur').value;
-  const [game, id] = pval.split('__');
-  await post('negociations', {
-    organisation: org,
-    etape: parseInt(document.getElementById('n-etape').value),
-    valeur: document.getElementById('n-valeur').value,
-    priorite: document.getElementById('n-prio').value,
-    notes: document.getElementById('n-notes').value,
-    fn_player_id: game==='fn' ? id : null,
-    eafc_player_id: game==='eafc' ? id : null
-  });
-  DB.negociations = await get('negociations', '?order=created_at.desc');
-  toast('Négociation ajoutée ✓'); closeModal(); renderNego();
+async function deleteContrat(id){
+  if(!confirm('Supprimer ce contrat ?'))return;
+  await del('offres',id);
+  DB.offres=await get('offres','?order=created_at.desc');
+  toast('Contrat supprimé');renderContrats();
 }
 
-async function advanceNego(id, etape) {
-  etape = parseInt(etape);
-  if(etape >= 4) { if(confirm('Négociation finalisée — supprimer ?')) { await deleteNego(id); } return; }
-  await patch('negociations', id, {etape: etape+1});
-  DB.negociations = await get('negociations', '?order=created_at.desc');
+// ── CRUD NEGO ──
+async function addNego(){
+  const org=document.getElementById('n-org').value.trim();
+  if(!org)return alert('Organisation requise');
+  const pval=document.getElementById('n-joueur').value;
+  const[game,id]=pval.split('__');
+  await post('negociations',{organisation:org,etape:parseInt(document.getElementById('n-etape').value),valeur:document.getElementById('n-valeur').value,priorite:document.getElementById('n-prio').value,notes:document.getElementById('n-notes').value,fn_player_id:game==='fn'?id:null,eafc_player_id:game==='eafc'?id:null});
+  DB.negociations=await get('negociations','?order=created_at.desc');
+  toast('Négociation ajoutée ✓');closeModal();renderNego();
+}
+
+async function advanceNego(id,etape){
+  etape=parseInt(etape);
+  if(etape>=4){if(confirm('Négociation finalisée — supprimer ?'))await deleteNego(id);return;}
+  await patch('negociations',id,{etape:etape+1});
+  DB.negociations=await get('negociations','?order=created_at.desc');
   renderNego();
 }
 
-async function deleteNego(id) {
-  if(!confirm('Supprimer cette négociation ?')) return;
-  await del('negociations', id);
-  DB.negociations = await get('negociations', '?order=created_at.desc');
-  toast('Négociation supprimée'); renderNego();
+async function deleteNego(id){
+  if(!confirm('Supprimer ?'))return;
+  await del('negociations',id);
+  DB.negociations=await get('negociations','?order=created_at.desc');
+  toast('Négociation supprimée');renderNego();
 }
 
-// ═══════════════════════════════════════
-//  CRUD — CONTACTS
-// ═══════════════════════════════════════
-async function addContact() {
-  const prenom = document.getElementById('c-prenom').value.trim();
-  const nom = document.getElementById('c-nom').value.trim();
-  if(!prenom||!nom) return alert('Prénom et nom requis');
-  await post('contacts', {
-    prenom, nom,
-    role: document.getElementById('c-role').value,
-    organisation: document.getElementById('c-org').value,
-    email: document.getElementById('c-email').value,
-    telephone: document.getElementById('c-tel').value,
-    categorie: document.getElementById('c-cat').value,
-    jeux: document.getElementById('c-jeux').value,
-    notes: document.getElementById('c-notes').value
-  });
-  DB.contacts = await get('contacts', '?order=nom.asc');
-  toast('Contact ajouté ✓'); closeModal(); renderContacts();
+// ── CRUD CONTACTS ──
+async function addContact(){
+  const prenom=document.getElementById('ct-prenom').value.trim(),nom=document.getElementById('ct-nom').value.trim();
+  if(!prenom||!nom)return alert('Prénom et nom requis');
+  await post('contacts',{prenom,nom,role:document.getElementById('ct-role').value,organisation:document.getElementById('ct-org').value,email:document.getElementById('ct-email').value,telephone:document.getElementById('ct-tel').value,categorie:document.getElementById('ct-cat').value,jeux:document.getElementById('ct-jeux').value,notes:document.getElementById('ct-notes').value});
+  DB.contacts=await get('contacts','?order=nom.asc');
+  toast('Contact ajouté ✓');closeModal();renderContacts();
 }
 
-async function deleteContact(id) {
-  if(!confirm('Supprimer ce contact ?')) return;
-  await del('contacts', id);
-  DB.contacts = await get('contacts', '?order=nom.asc');
-  toast('Contact supprimé'); renderContacts();
+async function deleteContact(id){
+  if(!confirm('Supprimer ?'))return;
+  await del('contacts',id);
+  DB.contacts=await get('contacts','?order=nom.asc');
+  toast('Contact supprimé');renderContacts();
 }
 
-// ═══════════════════════════════════════
-//  CRUD — TACHES
-// ═══════════════════════════════════════
-async function addTache() {
-  const desc = document.getElementById('t-desc').value.trim();
-  if(!desc) return alert('Description requise');
-  const pval = document.getElementById('t-joueur').value;
-  const [game, id] = pval ? pval.split('__') : ['',''];
-  await post('taches', {
-    description: desc,
-    priorite: document.getElementById('t-prio').value,
-    date_limite: document.getElementById('t-date').value || null,
-    done: false,
-    fn_player_id: game==='fn' ? id : null,
-    eafc_player_id: game==='eafc' ? id : null
-  });
-  DB.taches = await get('taches', '?order=created_at.desc');
-  toast('Tâche ajoutée ✓'); closeModal(); renderTaches();
+// ── CRUD TACHES ──
+async function addTache(){
+  const desc=document.getElementById('t-desc').value.trim();
+  if(!desc)return alert('Description requise');
+  const pval=document.getElementById('t-joueur').value;
+  const[game,id]=pval?pval.split('__'):['',''];
+  await post('taches',{description:desc,priorite:document.getElementById('t-prio').value,date_limite:document.getElementById('t-date').value||null,done:false,fn_player_id:game==='fn'?id:null,eafc_player_id:game==='eafc'?id:null});
+  DB.taches=await get('taches','?order=created_at.desc');
+  toast('Tâche ajoutée ✓');closeModal();renderTaches();
 }
 
-async function toggleTask(id) {
-  const t = DB.taches.find(x=>x.id===id);
-  if(!t) return;
-  await patch('taches', id, {done: !t.done});
-  DB.taches = await get('taches', '?order=created_at.desc');
+async function toggleTask(id){
+  const t=DB.taches.find(x=>x.id===id);if(!t)return;
+  await patch('taches',id,{done:!t.done});
+  DB.taches=await get('taches','?order=created_at.desc');
   renderTaches();
 }
 
-async function deleteTask(id) {
-  await del('taches', id);
-  DB.taches = await get('taches', '?order=created_at.desc');
+async function deleteTask(id){
+  await del('taches',id);
+  DB.taches=await get('taches','?order=created_at.desc');
   renderTaches();
 }
 
-async function updateFollowers(game, id) {
-  const list = game==='fn' ? DB.fn : DB.eafc;
-  const p = list.find(x=>x.id===id);
-  if(!p) return;
-  const v = prompt(`${p.pseudo} — Followers Twitter :`, p.followers||0);
-  if(v===null) return;
-  const table = game==='fn' ? 'fn_players' : 'eafc_players';
-  await patch(table, id, {followers: parseInt(v)||0});
-  if(game==='fn') DB.fn = await get('fn_players', '?order=ft_rank.asc.nullslast');
-  else DB.eafc = await get('eafc_players', '?order=created_at.asc');
-  toast('Followers mis à jour ✓'); renderReseaux();
+async function updateFollowers(game,id){
+  const list=game==='fn'?DB.fn:DB.eafc;
+  const p=list.find(x=>x.id===id);if(!p)return;
+  const v=prompt(`${p.pseudo} — Followers Twitter :`,p.followers||0);
+  if(v===null)return;
+  const table=game==='fn'?'fn_players':'eafc_players';
+  await patch(table,id,{followers:parseInt(v)||0});
+  if(game==='fn')DB.fn=await get('fn_players','?order=ft_rank.asc.nullslast');
+  else DB.eafc=await get('eafc_players','?order=created_at.asc');
+  toast('Followers mis à jour ✓');renderReseaux();
 }
 
-// ═══════════════════════════════════════
-//  MODAL
-// ═══════════════════════════════════════
-function openModal(name) {
+// ── MODAL ──
+function openModal(name){
   document.querySelectorAll('.modal').forEach(m=>m.style.display='none');
+  if(name==='addFN')document.getElementById('fn-edit-id').value='';
+  if(name==='addEAFC')document.getElementById('eafc-edit-id').value='';
+  if(name==='addContrat'){document.getElementById('contrat-edit-id').value='';document.getElementById('contrat-modal-title').textContent='Nouveau contrat';}
 
-  if(name==='addFN') { document.getElementById('fn-edit-id').value=''; }
-  if(name==='addEAFC') { document.getElementById('eafc-edit-id').value=''; }
-
-  if(name==='updateRanking') {
-    document.getElementById('ranking-fields').innerHTML = DB.fn.map(p=>`
+  if(name==='updateRanking'){
+    document.getElementById('ranking-fields').innerHTML=DB.fn.map(p=>`
       <div style="background:var(--s2);border-radius:var(--rs);padding:12px;margin-bottom:10px;">
         <div style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:8px;">${av(p,22,'fn')} ${p.pseudo}</div>
         <div class="fr2 fr"><div><label class="flabel">FT Rank</label><input class="finput" id="rk-ft-rank-${p.id}" value="${p.ft_rank||''}" placeholder="#"></div><div><label class="flabel">FT Points</label><input class="finput" id="rk-ft-pts-${p.id}" value="${p.ft_pts||''}" placeholder="pts"></div></div>
         <div class="fr2"><div><label class="flabel">GP Rank</label><input class="finput" id="rk-gp-rank-${p.id}" value="${p.gp_rank||''}" placeholder="#"></div><div><label class="flabel">GP Points</label><input class="finput" id="rk-gp-pts-${p.id}" value="${p.gp_pts||''}" placeholder="pts"></div></div>
       </div>`).join('');
   }
-
-  if(name==='updateFNStats') {
-    document.getElementById('fn-stats-fields').innerHTML = DB.fn.map(p=>`
+  if(name==='updateFNStats'){
+    document.getElementById('fn-stats-fields').innerHTML=DB.fn.map(p=>`
       <div style="background:var(--s2);border-radius:var(--rs);padding:12px;margin-bottom:10px;">
         <div style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:8px;">${p.pseudo}</div>
         <div class="fr2 fr"><div><label class="flabel">Followers</label><input class="finput" id="fs-flw-${p.id}" value="${p.followers||0}" type="number"></div><div><label class="flabel">Forme</label><select class="fselect" id="fs-forme-${p.id}"><option value="hot" ${p.forme==='hot'?'selected':''}>🔥 Excellente</option><option value="good" ${p.forme==='good'?'selected':''}>↑ Bonne</option><option value="avg" ${p.forme==='avg'?'selected':''}>→ Moyenne</option><option value="low" ${p.forme==='low'?'selected':''}>↓ Basse</option></select></div></div>
         <div class="fr"><label class="flabel">Notes</label><input class="finput" id="fs-notes-${p.id}" value="${p.notes||''}"></div>
       </div>`).join('');
   }
-
-  if(name==='updateEAFCStats') {
-    document.getElementById('eafc-stats-fields').innerHTML = DB.eafc.map(p=>`
+  if(name==='updateEAFCStats'){
+    document.getElementById('eafc-stats-fields').innerHTML=DB.eafc.map(p=>`
       <div style="background:var(--s2);border-radius:var(--rs);padding:12px;margin-bottom:10px;">
         <div style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:8px;">${p.pseudo}</div>
         <div class="fr2 fr"><div><label class="flabel">Division</label><input class="finput" id="es-div-${p.id}" value="${p.division||''}"></div><div><label class="flabel">Rang</label><input class="finput" id="es-rank-${p.id}" value="${p.rang||''}"></div></div>
@@ -1272,48 +1157,34 @@ function openModal(name) {
         <div class="fr"><label class="flabel">Notes</label><input class="finput" id="es-notes-${p.id}" value="${p.notes||''}"></div>
       </div>`).join('');
   }
-
-  if(['addOffre','addNego'].includes(name)) {
-    const sel = document.getElementById(name==='addOffre'?'o-joueur':'n-joueur');
-    if(sel) sel.innerHTML = playerOptions();
+  if(['addContrat','addNego'].includes(name)){
+    const sel=document.getElementById(name==='addContrat'?'c2-joueur':'n-joueur');
+    if(sel)sel.innerHTML=playerOptions();
   }
-  if(name==='addTache') {
-    const sel = document.getElementById('t-joueur');
-    if(sel) sel.innerHTML = playerOptions(true);
+  if(name==='addTache'){
+    const sel=document.getElementById('t-joueur');
+    if(sel)sel.innerHTML=playerOptions(true);
   }
-
-  const m = document.getElementById('m-'+name);
-  if(!m) return;
-  m.style.display = 'block';
+  const m=document.getElementById('m-'+name);
+  if(!m)return;
+  m.style.display='block';
   document.getElementById('overlay').classList.add('open');
 }
 
-function closeModal() {
-  document.getElementById('overlay').classList.remove('open');
-  document.querySelectorAll('.modal').forEach(m=>m.style.display='none');
-}
-function closeOnBg(e) { if(e.target===document.getElementById('overlay')) closeModal(); }
-function openRankingSources() {
-  window.open('https://fortnitetracker.com/events/powerrankings?platform=pc&region=EU&time=year','_blank');
-  setTimeout(()=>window.open('https://fortnite-esports.fandom.com/wiki/Power_Rankings/PC/Europe','_blank'),400);
-}
+function closeModal(){document.getElementById('overlay').classList.remove('open');document.querySelectorAll('.modal').forEach(m=>m.style.display='none');}
+function closeOnBg(e){if(e.target===document.getElementById('overlay'))closeModal();}
+function openRankingSources(){window.open('https://fortnitetracker.com/events/powerrankings?platform=pc&region=EU&time=year','_blank');setTimeout(()=>window.open('https://fortnite-esports.fandom.com/wiki/Power_Rankings/PC/Europe','_blank'),400);}
 
-// ═══════════════════════════════════════
-//  INIT
-// ═══════════════════════════════════════
-document.addEventListener('DOMContentLoaded', async () => {
-  document.getElementById('datefoot').textContent = new Date().toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
-  try {
+// ── INIT ──
+document.addEventListener('DOMContentLoaded',async()=>{
+  document.getElementById('datefoot').textContent=new Date().toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  try{
     await loadAll();
-    document.getElementById('loadingScreen').style.display = 'none';
+    document.getElementById('loadingScreen').style.display='none';
     renderDashboard();
     toast('Dashboard chargé ✓');
-  } catch(e) {
-    document.getElementById('loadingScreen').innerHTML = `
-      <div class="loading-logo">AGENT<span>.</span></div>
-      <div style="color:var(--red);font-size:13px;text-align:center;max-width:300px;">
-        Erreur de connexion Supabase.<br>Vérifie que le SQL a bien été exécuté et que les tables existent.
-      </div>`;
+  }catch(e){
+    document.getElementById('loadingScreen').innerHTML=`<div class="loading-logo">AGENT<span>.</span></div><div style="color:var(--red);font-size:13px;text-align:center;max-width:300px;">Erreur de connexion Supabase.<br>Vérifie que le SQL a bien été exécuté.</div>`;
   }
 });
 </script>
