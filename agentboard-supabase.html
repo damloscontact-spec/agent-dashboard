@@ -252,7 +252,7 @@ tbody td{padding:10px 14px;font-size:13px;color:var(--text);vertical-align:middl
     <div class="nav-item" onclick="go('fn-stats',this)"><span class="nav-icon">◎</span>Statistiques FN</div>
     <div class="nav-label">⚽ EA FC</div>
     <div class="nav-item" onclick="go('eafc-joueurs',this)"><span class="nav-icon">◉</span>Roster EA FC</div>
-    <div class="nav-item" onclick="go('eafc-stats',this)"><span class="nav-icon">◎</span>Statistiques EAFC</div>
+    <div class="nav-item" onclick="go('eafc-saison',this)"><span class="nav-icon">◎</span>Saison EA FC</div>
     <div class="nav-label">Business</div>
     <div class="nav-item" onclick="go('contrats',this)"><span class="nav-icon">◇</span>Contrats</div>
     <div class="nav-item" onclick="go('negociations',this)"><span class="nav-icon">⟳</span>Négociations</div>
@@ -335,10 +335,18 @@ tbody td{padding:10px 14px;font-size:13px;color:var(--text);vertical-align:middl
       <div class="g3" id="eafc-grid"></div>
     </div>
 
-    <!-- EAFC STATS -->
-    <div class="section" id="sec-eafc-stats">
-      <div class="sh"><div class="stitle flex fca g10"><span class="tag t-eafc">⚽</span> Statistiques EA FC</div><button class="btn btn-eafc btn-sm" onclick="openModal('updateEAFCStats')">✎ Mettre à jour</button></div>
-      <div class="g3" id="eafc-stats-grid"></div>
+    <!-- EAFC SAISON -->
+    <div class="section" id="sec-eafc-saison">
+      <div class="sh">
+        <div><div class="stitle flex fca g10"><span class="tag t-eafc">⚽</span> Saison EA FC</div><div class="ssub">Historique des saisons par joueur</div></div>
+        <button class="btn btn-eafc" onclick="openModal('addSaison')">+ Nouvelle saison</button>
+      </div>
+      <!-- Sélecteur joueur -->
+      <div class="mb20 flex g10 fca">
+        <span style="font-size:12px;color:var(--muted);font-family:'Syne',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:.08em;">Joueur</span>
+        <div id="saison-player-tabs" class="flex g6"></div>
+      </div>
+      <div id="eafc-saison-grid"></div>
     </div>
 
     <!-- CONTRATS -->
@@ -498,6 +506,31 @@ tbody td{padding:10px 14px;font-size:13px;color:var(--text);vertical-align:middl
     <div class="flex g6" style="justify-content:flex-end"><button class="btn btn-ghost" onclick="closeModal()">Annuler</button><button class="btn btn-gold" onclick="addTache()">Ajouter</button></div>
   </div>
 
+  <!-- ADD SAISON EAFC -->
+  <div class="modal" id="m-addSaison" style="display:none">
+    <div class="mhead"><div class="mtitle" id="saison-modal-title">Nouvelle saison EA FC</div><button class="mclose" onclick="closeModal()">✕</button></div>
+    <input type="hidden" id="saison-edit-id">
+    <div class="fr2 fr">
+      <div><label class="flabel">Joueur</label><select class="fselect" id="saison-joueur"></select></div>
+      <div><label class="flabel">Saison</label><input class="finput" id="saison-annee" placeholder="ex: 2024/2025"></div>
+    </div>
+    <div style="background:var(--eafc-s);border:1px solid var(--eafc-b);border-radius:var(--rs);padding:10px 14px;margin-bottom:14px;font-size:11.5px;color:var(--dim);">⚽ Ligue</div>
+    <div class="fr2 fr">
+      <div><label class="flabel">Résultat ligue</label><input class="finput" id="saison-top-ligue" placeholder="ex: Top 12"></div>
+      <div><label class="flabel">Détails</label><input class="finput" id="saison-details-ligue" placeholder="ex: À 1pt du Top 8"></div>
+    </div>
+    <div style="background:var(--eafc-s);border:1px solid var(--eafc-b);border-radius:var(--rs);padding:10px 14px;margin-bottom:14px;font-size:11.5px;color:var(--dim);">🏆 Coupe</div>
+    <div class="fr2 fr">
+      <div><label class="flabel">Résultat coupe</label><input class="finput" id="saison-top-coupe" placeholder="ex: 16èmes de finale"></div>
+      <div><label class="flabel">Détails</label><input class="finput" id="saison-details-coupe" placeholder="ex: Qualifié via ligue"></div>
+    </div>
+    <div style="background:var(--eafc-s);border:1px solid var(--eafc-b);border-radius:var(--rs);padding:10px 14px;margin-bottom:14px;font-size:11.5px;color:var(--dim);">💰 Cash Cup</div>
+    <div class="fr"><label class="flabel">Résultats Cash Cup</label><textarea class="ftextarea" id="saison-cash-cup" placeholder="ex: Top 97 cumul saison" style="min-height:50px;"></textarea></div>
+    <div style="background:var(--eafc-s);border:1px solid var(--eafc-b);border-radius:var(--rs);padding:10px 14px;margin-bottom:14px;font-size:11.5px;color:var(--dim);">📋 Autres</div>
+    <div class="fr"><label class="flabel">Autres résultats / événements</label><textarea class="ftextarea" id="saison-autres" placeholder="Tournois, événements spéciaux..."></textarea></div>
+    <div class="flex g6" style="justify-content:flex-end"><button class="btn btn-ghost" onclick="closeModal()">Annuler</button><button class="btn btn-eafc" onclick="saveSaison()">Enregistrer</button></div>
+  </div>
+
 </div>
 
 <script>
@@ -525,19 +558,21 @@ const post  = (t,b)      => sb(t,'POST',b);
 const patch = (t,id,b)   => sb(t,'PATCH',b,`?id=eq.${id}`);
 const del   = (t,id)     => sb(t,'DELETE',null,`?id=eq.${id}`);
 
-let DB = {fn:[],eafc:[],offres:[],negociations:[],contacts:[],taches:[]};
+let DB = {fn:[],eafc:[],offres:[],negociations:[],contacts:[],taches:[],saisons:[]};
+let activeSaisonPlayer = null;
 
 async function loadAll() {
-  const [fn,eafc,offres,nego,contacts,taches] = await Promise.all([
+  const [fn,eafc,offres,nego,contacts,taches,saisons] = await Promise.all([
     get('fn_players','?order=ft_rank.asc.nullslast'),
     get('eafc_players','?order=created_at.asc'),
     get('offres','?order=created_at.desc'),
     get('negociations','?order=created_at.desc'),
     get('contacts','?order=nom.asc'),
-    get('taches','?order=created_at.desc')
+    get('taches','?order=created_at.desc'),
+    get('eafc_seasons','?order=saison.desc')
   ]);
   DB.fn=fn; DB.eafc=eafc; DB.offres=offres;
-  DB.negociations=nego; DB.contacts=contacts; DB.taches=taches;
+  DB.negociations=nego; DB.contacts=contacts; DB.taches=taches; DB.saisons=saisons;
 }
 
 function setSyncing(on,err=false){
@@ -620,7 +655,7 @@ function calcTotalSalaires(){
   return{total,details};
 }
 
-const titles={dashboard:'Dashboard','fn-joueurs':'Roster Fortnite','fn-ranking':'Power Ranking','fn-stats':'Stats Fortnite','eafc-joueurs':'Roster EA FC','eafc-stats':'Stats EA FC',contrats:'Contrats',negociations:'Négociations',contacts:'Contacts',taches:'Tâches & Agenda',reseaux:'Réseaux Sociaux'};
+const titles={dashboard:'Dashboard','fn-joueurs':'Roster Fortnite','fn-ranking':'Power Ranking','fn-stats':'Stats Fortnite','eafc-joueurs':'Roster EA FC','eafc-saison':'Saison EA FC',contrats:'Contrats',negociations:'Négociations',contacts:'Contacts',taches:'Tâches & Agenda',reseaux:'Réseaux Sociaux'};
 
 function go(id,el){
   document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
@@ -632,7 +667,7 @@ function go(id,el){
 }
 
 function render(id){
-  const map={dashboard:renderDashboard,'fn-joueurs':renderFNJoueurs,'fn-ranking':renderFNRanking,'fn-stats':renderFNStats,'eafc-joueurs':renderEAFCJoueurs,'eafc-stats':renderEAFCStats,contrats:renderContrats,negociations:renderNego,contacts:renderContacts,taches:renderTaches,reseaux:renderReseaux};
+  const map={dashboard:renderDashboard,'fn-joueurs':renderFNJoueurs,'fn-ranking':renderFNRanking,'fn-stats':renderFNStats,'eafc-joueurs':renderEAFCJoueurs,'eafc-saison':renderEAFCSaison,contrats:renderContrats,negociations:renderNego,contacts:renderContacts,taches:renderTaches,reseaux:renderReseaux};
   if(map[id])map[id]();
 }
 
@@ -772,7 +807,8 @@ function renderEAFCJoueurs(){
         <div class="ps"><div class="ps-label">Buts/P</div><div class="ps-val" style="font-size:15px;">${p.buts_partie||'—'}</div></div>
       </div>
       <div class="pcard-nav">
-        <span class="pnav-btn pnav-eafc" onclick="goToPlayerSection('eafc-stats','${p.id}')">◎ Stats</span>
+        <span class="pnav-btn pnav-eafc" onclick="goToEAFCSaison('${p.id}')">◎ Saison</span>
+        <span class="pnav-btn pnav-eafc" onclick="goToEAFCContrat('${p.id}')">◇ Contrat</span>
         <span class="pnav-btn pnav-eafc" onclick="goToPlayerSection('reseaux','${p.id}')">↑ Réseaux</span>
       </div>
       ${p.notes?`<div style="font-size:11.5px;color:var(--muted);margin-top:10px;padding-top:10px;border-top:1px solid var(--border);">${p.notes}</div>`:''}
@@ -783,20 +819,70 @@ function renderEAFCJoueurs(){
     </div>`).join('')||'<div class="empty" style="grid-column:1/-1"><div class="empty-ico">◉</div>Aucun joueur EA FC</div>';
 }
 
-// ── EAFC STATS ──
-function renderEAFCStats(){
-  document.getElementById('eafc-stats-grid').innerHTML=DB.eafc.map(p=>`
-    <div class="card" id="player-highlight-${p.id}">
-      <div class="flex fca g10 mb16">${av(p,36,'eafc')}<div style="flex:1;"><div style="font-family:'Syne',sans-serif;font-weight:700;font-size:14px;">${p.pseudo}</div><div style="font-size:11px;color:var(--muted);">${p.twitter||''}</div></div>${formeTag(p.forme)}</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
-        <div style="background:var(--s2);border-radius:var(--rs);padding:10px;text-align:center;"><div style="font-family:'Syne',sans-serif;font-weight:800;font-size:16px;color:var(--eafc);">${p.division||'—'}</div><div style="font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;">Division</div></div>
-        <div style="background:var(--s2);border-radius:var(--rs);padding:10px;text-align:center;"><div style="font-family:'Syne',sans-serif;font-weight:800;font-size:16px;">${p.rang||'—'}</div><div style="font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;">Rang</div></div>
-        <div style="background:var(--s2);border-radius:var(--rs);padding:10px;text-align:center;"><div style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;color:var(--green);">${p.wl_ratio||'—'}</div><div style="font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;">Ratio V/D</div></div>
-        <div style="background:var(--s2);border-radius:var(--rs);padding:10px;text-align:center;"><div style="font-family:'Syne',sans-serif;font-weight:800;font-size:20px;">${p.buts_partie||'—'}</div><div style="font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;">Buts/partie</div></div>
+function goToEAFCSaison(playerId) {
+  activeSaisonPlayer = playerId;
+  const navItem = document.querySelector(`.nav-item[onclick*="'eafc-saison'"]`);
+  go('eafc-saison', navItem);
+}
+
+function goToEAFCContrat(playerId) {
+  const navItem = document.querySelector(`.nav-item[onclick*="'contrats'"]`);
+  go('contrats', navItem);
+}
+
+// ── EAFC SAISON ──
+function renderEAFCSaison(){
+  // Onglets joueurs
+  const tabs = document.getElementById('saison-player-tabs');
+  if(tabs) {
+    tabs.innerHTML = DB.eafc.map(p=>`
+      <button class="btn btn-sm ${activeSaisonPlayer===p.id?'btn-eafc':'btn-ghost'}" onclick="activeSaisonPlayer='${p.id}';renderEAFCSaison();">${p.pseudo}</button>
+    `).join('');
+  }
+
+  if(!activeSaisonPlayer && DB.eafc.length>0) activeSaisonPlayer = DB.eafc[0].id;
+
+  const saisons = DB.saisons.filter(s=>s.eafc_player_id===activeSaisonPlayer).sort((a,b)=>b.saison.localeCompare(a.saison));
+  const joueur = DB.eafc.find(p=>p.id===activeSaisonPlayer);
+
+  document.getElementById('eafc-saison-grid').innerHTML = saisons.length ? saisons.map(s=>`
+    <div class="card mb16">
+      <div class="flex fca" style="justify-content:space-between;margin-bottom:16px;">
+        <div class="flex fca g10">
+          ${joueur?av(joueur,34,'eafc'):''}
+          <div>
+            <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:16px;">${s.saison}</div>
+            <div style="font-size:11px;color:var(--muted);">${joueur?.pseudo||''}</div>
+          </div>
+        </div>
+        <div class="flex g6">
+          <button class="btn btn-ghost btn-xs" onclick="editSaison('${s.id}')">✎</button>
+          <button class="btn btn-danger btn-xs" onclick="deleteSaison('${s.id}')">✕</button>
+        </div>
       </div>
-      <div class="flex fca g6"><div style="font-size:10px;color:var(--muted);width:70px;">Followers</div><div style="flex:1;" class="bar"><div class="bar-fill bf-eafc" style="height:5px;width:${Math.min(100,((p.followers||0)/50000)*100)}%;"></div></div><div style="font-size:11px;font-family:'Syne',sans-serif;font-weight:700;width:40px;text-align:right;">${fmtNum(p.followers||0)}</div></div>
-      ${p.notes?`<div style="font-size:11.5px;color:var(--muted);margin-top:8px;padding-top:8px;border-top:1px solid var(--border);">📝 ${p.notes}</div>`:''}
-    </div>`).join('');
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div style="background:var(--s2);border-radius:var(--rs);padding:14px;">
+          <div style="font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--eafc);font-family:'Syne',sans-serif;font-weight:700;margin-bottom:8px;">⚽ Ligue</div>
+          <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:18px;color:var(--text);">${s.top_ligue||'—'}</div>
+          ${s.details_ligue?`<div style="font-size:11.5px;color:var(--muted);margin-top:4px;">${s.details_ligue}</div>`:''}
+        </div>
+        <div style="background:var(--s2);border-radius:var(--rs);padding:14px;">
+          <div style="font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);font-family:'Syne',sans-serif;font-weight:700;margin-bottom:8px;">🏆 Coupe</div>
+          <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:18px;color:var(--text);">${s.top_coupe||'—'}</div>
+          ${s.details_coupe?`<div style="font-size:11.5px;color:var(--muted);margin-top:4px;">${s.details_coupe}</div>`:''}
+        </div>
+        ${s.cash_cup?`<div style="background:var(--s2);border-radius:var(--rs);padding:14px;">
+          <div style="font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--green);font-family:'Syne',sans-serif;font-weight:700;margin-bottom:8px;">💰 Cash Cup</div>
+          <div style="font-size:13px;color:var(--text);">${s.cash_cup}</div>
+        </div>`:''}
+        ${s.autres?`<div style="background:var(--s2);border-radius:var(--rs);padding:14px;">
+          <div style="font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--purple);font-family:'Syne',sans-serif;font-weight:700;margin-bottom:8px;">📋 Autres</div>
+          <div style="font-size:13px;color:var(--text);">${s.autres}</div>
+        </div>`:''}
+      </div>
+    </div>
+  `).join('') : `<div class="empty"><div class="empty-ico">⚽</div><div class="empty-text">Aucune saison enregistrée pour ce joueur</div></div>`;
 }
 
 // ── CONTRATS ──
@@ -910,6 +996,51 @@ function renderReseaux(){
     </div>`;
   document.getElementById('rsn-fn').innerHTML=DB.fn.map(p=>card(p,'fn')).join('')||'<div class="empty" style="grid-column:1/-1">Aucun joueur FN</div>';
   document.getElementById('rsn-eafc').innerHTML=DB.eafc.map(p=>card(p,'eafc')).join('')||'<div class="empty" style="grid-column:1/-1">Aucun joueur EA FC</div>';
+}
+
+// ── CRUD SAISON EAFC ──
+async function saveSaison(){
+  const annee=document.getElementById('saison-annee').value.trim();
+  if(!annee)return alert('Saison requise');
+  const editId=document.getElementById('saison-edit-id').value;
+  const joueurId=document.getElementById('saison-joueur').value;
+  const body={
+    eafc_player_id:joueurId,
+    saison:annee,
+    top_ligue:document.getElementById('saison-top-ligue').value,
+    details_ligue:document.getElementById('saison-details-ligue').value,
+    top_coupe:document.getElementById('saison-top-coupe').value,
+    details_coupe:document.getElementById('saison-details-coupe').value,
+    cash_cup:document.getElementById('saison-cash-cup').value,
+    autres:document.getElementById('saison-autres').value
+  };
+  if(editId){await patch('eafc_seasons',editId,body);toast('Saison modifiée ✓');}
+  else{await post('eafc_seasons',body);toast('Saison ajoutée ✓');}
+  DB.saisons=await get('eafc_seasons','?order=saison.desc');
+  closeModal();renderEAFCSaison();
+}
+
+function editSaison(id){
+  const s=DB.saisons.find(x=>x.id===id);if(!s)return;
+  document.getElementById('saison-edit-id').value=id;
+  document.getElementById('saison-modal-title').textContent='Modifier la saison';
+  const sel=document.getElementById('saison-joueur');
+  if(sel){sel.innerHTML=DB.eafc.map(p=>`<option value="${p.id}">${p.pseudo}</option>`).join('');sel.value=s.eafc_player_id;}
+  document.getElementById('saison-annee').value=s.saison||'';
+  document.getElementById('saison-top-ligue').value=s.top_ligue||'';
+  document.getElementById('saison-details-ligue').value=s.details_ligue||'';
+  document.getElementById('saison-top-coupe').value=s.top_coupe||'';
+  document.getElementById('saison-details-coupe').value=s.details_coupe||'';
+  document.getElementById('saison-cash-cup').value=s.cash_cup||'';
+  document.getElementById('saison-autres').value=s.autres||'';
+  openModal('addSaison',true);
+}
+
+async function deleteSaison(id){
+  if(!confirm('Supprimer cette saison ?'))return;
+  await del('eafc_seasons',id);
+  DB.saisons=await get('eafc_seasons','?order=saison.desc');
+  toast('Saison supprimée');renderEAFCSaison();
 }
 
 // ── CRUD FN ──
@@ -1158,6 +1289,15 @@ function openModal(name, isEdit=false){
         <div class="fr2 fr"><div><label class="flabel">Followers</label><input class="finput" id="es-flw-${p.id}" value="${p.followers||0}" type="number"></div><div><label class="flabel">Forme</label><select class="fselect" id="es-forme-${p.id}"><option value="hot" ${p.forme==='hot'?'selected':''}>🔥 Excellente</option><option value="good" ${p.forme==='good'?'selected':''}>↑ Bonne</option><option value="avg" ${p.forme==='avg'?'selected':''}>→ Moyenne</option><option value="low" ${p.forme==='low'?'selected':''}>↓ Basse</option></select></div></div>
         <div class="fr"><label class="flabel">Notes</label><input class="finput" id="es-notes-${p.id}" value="${p.notes||''}"></div>
       </div>`).join('');
+  }
+  if(name==='addSaison' && !isEdit){
+    document.getElementById('saison-edit-id').value='';
+    document.getElementById('saison-modal-title').textContent='Nouvelle saison EA FC';
+    const sel=document.getElementById('saison-joueur');
+    if(sel){
+      sel.innerHTML=DB.eafc.map(p=>`<option value="${p.id}">${p.pseudo}</option>`).join('');
+      if(activeSaisonPlayer) sel.value=activeSaisonPlayer;
+    }
   }
   if(['addContrat','addNego'].includes(name)){
     const sel=document.getElementById(name==='addContrat'?'c2-joueur':'n-joueur');
