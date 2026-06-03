@@ -418,6 +418,7 @@ tbody td{padding:10px 14px;font-size:13px;color:var(--text);vertical-align:middl
     <div class="mhead"><div class="mtitle">⚡ Joueur Fortnite</div><button class="mclose" onclick="closeModal()">✕</button></div>
     <input type="hidden" id="fn-edit-id">
     <div class="fr"><label class="flabel">Pseudo</label><input class="finput" id="fn-pseudo"></div>
+    <div class="fr"><label class="flabel">URL Photo de profil</label><input class="finput" id="fn-img" placeholder="ex: https://pbs.twimg.com/profile_images/..."><div style="font-size:10.5px;color:var(--muted);margin-top:4px;">Copie l'URL de la photo Twitter du joueur</div></div>
     <div class="fr2 fr"><div><label class="flabel">Twitter</label><input class="finput" id="fn-twitter" placeholder="@handle"></div><div><label class="flabel">Couleur</label><select class="fselect" id="fn-color"><option value="av-fn">Bleu FN</option><option value="av-gold">Or</option><option value="av-purple">Violet</option><option value="av-green">Vert</option><option value="av-teal">Teal</option></select></div></div>
     <div class="fr2 fr"><div><label class="flabel">FT Rank</label><input class="finput" id="fn-ft-rank" type="number"></div><div><label class="flabel">FT Points</label><input class="finput" id="fn-ft-pts" type="number"></div></div>
     <div class="fr2 fr"><div><label class="flabel">GP Rank</label><input class="finput" id="fn-gp-rank" type="number"></div><div><label class="flabel">GP Points</label><input class="finput" id="fn-gp-pts" type="number"></div></div>
@@ -431,6 +432,7 @@ tbody td{padding:10px 14px;font-size:13px;color:var(--text);vertical-align:middl
     <div class="mhead"><div class="mtitle">⚽ Joueur EA FC</div><button class="mclose" onclick="closeModal()">✕</button></div>
     <input type="hidden" id="eafc-edit-id">
     <div class="fr"><label class="flabel">Pseudo</label><input class="finput" id="eafc-pseudo"></div>
+    <div class="fr"><label class="flabel">URL Photo de profil</label><input class="finput" id="eafc-img" placeholder="ex: https://pbs.twimg.com/profile_images/..."><div style="font-size:10.5px;color:var(--muted);margin-top:4px;">Copie l'URL de la photo Twitter du joueur</div></div>
     <div class="fr2 fr"><div><label class="flabel">Twitter</label><input class="finput" id="eafc-twitter" placeholder="@handle"></div><div><label class="flabel">Couleur</label><select class="fselect" id="eafc-color"><option value="av-eafc">Orange EA FC</option><option value="av-gold">Or</option><option value="av-purple">Violet</option><option value="av-green">Vert</option><option value="av-teal">Teal</option></select></div></div>
     <div class="fr2 fr"><div><label class="flabel">Division Rivals</label><input class="finput" id="eafc-div"></div><div><label class="flabel">Rang</label><input class="finput" id="eafc-rank"></div></div>
     <div class="fr2 fr"><div><label class="flabel">Ratio V/D</label><input class="finput" id="eafc-wl"></div><div><label class="flabel">Buts/partie</label><input class="finput" id="eafc-goals"></div></div>
@@ -1048,7 +1050,7 @@ async function saveFNPlayer(){
   const pseudo=document.getElementById('fn-pseudo').value.trim();
   if(!pseudo)return alert('Pseudo requis');
   const editId=document.getElementById('fn-edit-id').value;
-  const body={pseudo,twitter:document.getElementById('fn-twitter').value.trim(),color:document.getElementById('fn-color').value,ft_rank:parseInt(document.getElementById('fn-ft-rank').value)||null,ft_pts:parseInt(document.getElementById('fn-ft-pts').value)||null,gp_rank:parseInt(document.getElementById('fn-gp-rank').value)||null,gp_pts:parseInt(document.getElementById('fn-gp-pts').value)||null,followers:parseInt(document.getElementById('fn-followers').value)||0,forme:document.getElementById('fn-forme').value,notes:document.getElementById('fn-notes').value};
+  const body={pseudo,twitter:document.getElementById('fn-twitter').value.trim(),color:document.getElementById('fn-color').value,img_url:document.getElementById('fn-img').value.trim()||null,ft_rank:parseInt(document.getElementById('fn-ft-rank').value)||null,ft_pts:parseInt(document.getElementById('fn-ft-pts').value)||null,gp_rank:parseInt(document.getElementById('fn-gp-rank').value)||null,gp_pts:parseInt(document.getElementById('fn-gp-pts').value)||null,followers:parseInt(document.getElementById('fn-followers').value)||0,forme:document.getElementById('fn-forme').value,notes:document.getElementById('fn-notes').value};
   if(editId){await patch('fn_players',editId,body);toast('Joueur modifié ✓');}
   else{await post('fn_players',body);toast('Joueur ajouté ✓');}
   closeModal();
@@ -1061,6 +1063,7 @@ function editFNPlayer(id){
   // Pré-remplir AVANT d'ouvrir la modal
   document.getElementById('fn-edit-id').value=id;
   document.getElementById('fn-pseudo').value=p.pseudo;
+  document.getElementById('fn-img').value=p.img_url||'';
   document.getElementById('fn-twitter').value=p.twitter||'';
   document.getElementById('fn-color').value=p.color||'av-fn';
   document.getElementById('fn-ft-rank').value=p.ft_rank||'';
@@ -1085,7 +1088,7 @@ async function saveEAFCPlayer(){
   const pseudo=document.getElementById('eafc-pseudo').value.trim();
   if(!pseudo)return alert('Pseudo requis');
   const editId=document.getElementById('eafc-edit-id').value;
-  const body={pseudo,twitter:document.getElementById('eafc-twitter').value.trim(),color:document.getElementById('eafc-color').value,division:document.getElementById('eafc-div').value,rang:document.getElementById('eafc-rank').value,wl_ratio:document.getElementById('eafc-wl').value,buts_partie:parseFloat(document.getElementById('eafc-goals').value)||null,followers:parseInt(document.getElementById('eafc-followers').value)||0,forme:document.getElementById('eafc-forme').value,notes:document.getElementById('eafc-notes').value};
+  const body={pseudo,twitter:document.getElementById('eafc-twitter').value.trim(),color:document.getElementById('eafc-color').value,img_url:document.getElementById('eafc-img').value.trim()||null,division:document.getElementById('eafc-div').value,rang:document.getElementById('eafc-rank').value,wl_ratio:document.getElementById('eafc-wl').value,buts_partie:parseFloat(document.getElementById('eafc-goals').value)||null,followers:parseInt(document.getElementById('eafc-followers').value)||0,forme:document.getElementById('eafc-forme').value,notes:document.getElementById('eafc-notes').value};
   if(editId){await patch('eafc_players',editId,body);toast('Joueur modifié ✓');}
   else{await post('eafc_players',body);toast('Joueur ajouté ✓');}
   closeModal();
@@ -1097,6 +1100,7 @@ function editEAFCPlayer(id){
   const p=DB.eafc.find(x=>x.id===id);if(!p)return;
   document.getElementById('eafc-edit-id').value=id;
   document.getElementById('eafc-pseudo').value=p.pseudo;
+  document.getElementById('eafc-img').value=p.img_url||'';
   document.getElementById('eafc-twitter').value=p.twitter||'';
   document.getElementById('eafc-color').value=p.color||'av-eafc';
   document.getElementById('eafc-div').value=p.division||'';
